@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SmartReceipts — on-device receipt scanning and expense tracking powered by local AI. Never leaves your phone. Coming soon to iOS and Android." />
+  <meta name="theme-color" content="#0b1021" />
+  <title>SmartReceipts — On-Device Receipt Scanner · Pocket AI Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* SmartReceipts page — additive styles over the shared dark theme */
+    :root { --accent: #22d3ee; }
+    .sr { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+    .sr-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
+    .sr .sr-eyebrow { color: var(--cyan); }
+    .sr h1 { font-size: clamp(2.4rem, 5.5vw, 3.6rem); margin-bottom: 1.2rem; }
+    .sr .sr-lede { color: var(--text-dim); font-size: 1.12rem; max-width: 46ch; margin-bottom: 2rem; }
+    .sr-cta { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+
+    .coming-badge { display: inline-flex; align-items: center; gap: 0.5em; background: var(--surface); border: 1px dashed var(--border); border-radius: 999px; padding: 0.4em 0.9em; font-size: 0.82rem; font-weight: 600; color: var(--cyan); }
+    .coming-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 4px rgba(34,211,238,0.15); }
+
+    .phone-card { position: relative; width: 240px; margin: 0 auto; }
+    .phone {
+      position: relative; width: 240px; height: 490px; border-radius: 42px;
+      background: linear-gradient(160deg, #1c2547, #0a0f20);
+      border: 7px solid #232b4d; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7); padding: 10px;
+    }
+    .phone .notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 88px; height: 20px; background: #0a0f20; border-radius: 0 0 14px 14px; z-index: 3; }
+    .phone-screen { position: relative; height: 100%; width: 100%; border-radius: 34px; background: linear-gradient(180deg, #121a35, #0a0e1e); overflow: hidden; padding: 1.4rem 1.1rem; display: flex; flex-direction: column; gap: 0.9rem; }
+    .sr-shell-head { display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem; }
+    .sr-shell-head .brand { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1rem; }
+    .sr-shell-head .tag { font-size: 0.62rem; color: var(--cyan); background: rgba(34,211,238,0.12); border: 1px solid rgba(34,211,238,0.3); padding: 0.2em 0.6em; border-radius: 999px; }
+    .sr-total { background: var(--surface-hi); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; }
+    .sr-total .lbl { font-size: 0.68rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+    .sr-total .amt { font-family: "Space Grotesk", sans-serif; font-size: 1.9rem; }
+    .sr-total .sub { font-size: 0.72rem; color: var(--text-dim); }
+    .sr-item { display: flex; gap: 0.7rem; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.6rem 0.7rem; }
+    .sr-item .ico { width: 30px; height: 30px; border-radius: 8px; background: rgba(34,211,238,0.15); display: grid; place-items: center; font-size: 1rem; flex: 0 0 auto; }
+    .sr-item .txt { flex: 1; min-width: 0; }
+    .sr-item .txt .n { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sr-item .txt .c { font-size: 0.7rem; color: var(--text-dim); }
+    .sr-item .pr { font-size: 0.82rem; font-weight: 700; font-family: "Space Grotesk", sans-serif; }
+    .sr-scan { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-top: auto; padding: 0.9rem; border-radius: 12px; border: 1px dashed rgba(34,211,238,0.4); background: rgba(34,211,238,0.05); }
+    .sr-scan .lens { font-size: 1.6rem; }
+    .sr-scan .cap { font-size: 0.72rem; color: var(--cyan); font-weight: 600; }
+    .sr-detection { position: absolute; top: 14px; right: 14px; background: rgba(34,211,238,0.15); border: 1px solid rgba(34,211,238,0.4); color: var(--cyan); font-size: 0.62rem; font-weight: 600; padding: 0.25em 0.6em; border-radius: 999px; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.4rem; margin-top: 2rem; }
+    .feature { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; }
+    .feature .fi { font-size: 1.6rem; margin-bottom: 0.8rem; }
+    .feature h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+    .feature p { color: var(--text-dim); font-size: 0.92rem; }
+
+    .section-head.center { text-align: center; max-width: 620px; margin: 0 auto clamp(2rem,5vw,3rem); }
+    .sr-join { text-align: center; max-width: 520px; margin: 0 auto; }
+    .sr-join .notify-form { max-width: 460px; margin: 1.6rem auto 0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Pocket AI Labs home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="30" height="30" fill="none">
+            <circle cx="16" cy="16" r="13.5" stroke="url(#g)" stroke-width="2.4"/>
+            <circle cx="16" cy="16" r="4.6" fill="url(#g)"/>
+            <path d="M16 6.5v3.5M16 22v3.5M6.5 16H10M22 16h3.5" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="g" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Pocket <b>AI</b> Labs</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="cartoonify.html">Kartoonify</a>
+        <a href="#features">Features</a>
+        <a href="#get">Notify me</a>
+      </nav>
+
+      <a href="#get" class="btn btn-sm btn-primary">Get notified</a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="sr">
+      <div class="container sr-inner">
+        <div>
+          <span class="coming-badge sr-eyebrow"><span class="dot" aria-hidden="true"></span> Coming soon</span>
+          <h1>Turn receipts into <span class="grad-text">insights.</span></h1>
+          <p class="sr-lede">
+            <strong>SmartReceipts</strong> scans your receipts and turns them into organized
+            spending history &mdash; entirely on your device. On-device AI reads the line items,
+            dates, totals, and currency. Nothing is ever uploaded.
+          </p>
+          <div class="sr-cta">
+            <a href="#get" class="btn btn-primary">Notify me at launch</a>
+            <a href="#features" class="btn btn-ghost">See features <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <ul class="hero-points">
+            <li><b>100%</b><span>on-device</span></li>
+            <li><b>Offline</b><span>by default</span></li>
+            <li><b>Biometric</b><span>app lock</span></li>
+          </ul>
+        </div>
+
+        <div class="phone-card" aria-label="SmartReceipts app preview">
+          <div class="phone">
+            <div class="notch"></div>
+            <div class="sr-detection">AI detected</div>
+            <div class="phone-screen">
+              <div class="sr-shell-head">
+                <span class="brand">SmartReceipts</span>
+                <span class="tag">On-device</span>
+              </div>
+              <div class="sr-total">
+                <div class="lbl">This month</div>
+                <div class="amt">$1,284.50</div>
+                <div class="sub">Groceries &nbsp;·&nbsp; 38 receipts</div>
+              </div>
+              <div class="sr-item">
+                <div class="ico">🛒</div>
+                <div class="txt"><div class="n">Fresh Market</div><div class="c">Groceries · $64.20</div></div>
+                <div class="pr">$64.20</div>
+              </div>
+              <div class="sr-item">
+                <div class="ico">⛽</div>
+                <div class="txt"><div class="n">QuickFuel</div><div class="c">Fuel · $52.10</div></div>
+                <div class="pr">$52.10</div>
+              </div>
+              <div class="sr-item">
+                <div class="ico">☕</div>
+                <div class="txt"><div class="n">Beanery</div><div class="c">Dining · $8.75</div></div>
+                <div class="pr">$8.75</div>
+              </div>
+              <div class="sr-scan">
+                <span class="lens">📷</span>
+                <span class="cap">Scan a receipt</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head center">
+          <span class="kicker">Features</span>
+          <h2>Everything you need to keep receipts under control</h2>
+          <p class="section-sub">Built to run natively and offline, on the fastest chip your phone offers.</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature">
+            <div class="fi">📸</div>
+            <h3>Camera &amp; gallery scan</h3>
+            <p>Point your camera at a receipt, or pick one from your gallery. On-device AI extracts the store, date, items, total, and currency &mdash; no uploads.</p>
+          </article>
+          <article class="feature">
+            <div class="fi">🧠</div>
+            <h3>Local AI extraction</h3>
+            <p>A multimodal on-device model reads the receipt text. Runs in-process with an NPU/GPU-first pipeline and an automatic CPU fallback.</p>
+          </article>
+          <article class="feature">
+            <div class="fi">📊</div>
+            <h3>Insights &amp; analytics</h3>
+            <p>See spending by category, track trends, and get monthly projections — all organized from your receipts, never leaving your phone.</p>
+          </article>
+          <article class="feature">
+            <div class="fi">💳</div>
+            <h3>Multi-currency</h3>
+            <p>Per-receipt currency detection (USD, EUR, GBP, JPY) with locale-aware formatting and a configurable default currency.</p>
+          </article>
+          <article class="feature">
+            <div class="fi">🔐</div>
+            <h3>Biometric lock</h3>
+            <p>Lock the app behind Face ID or fingerprint, with configurable auto-lock timing. Your receipts stay yours.</p>
+          </article>
+          <article class="feature">
+            <div class="fi">📦</div>
+            <h3>Backup &amp; restore</h3>
+            <p>Export everything to portable .srcpt files and restore instantly. Automatic backups keep your history safe, locally.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="get">
+      <div class="container">
+        <div class="section-head center">
+          <span class="kicker">Coming soon</span>
+          <h2>Want to be first to try SmartReceipts?</h2>
+          <p class="section-sub">We're polishing the final details. Drop your email and we'll let you know the moment it's live on iOS and Android.</p>
+        </div>
+        <div class="sr-join">
+          <form class="notify-form" id="notifyForm" novalidate>
+            <div class="field">
+              <label for="notifyEmail">Your email</label>
+              <input type="email" id="notifyEmail" name="notifyEmail" placeholder="you@example.com" autocomplete="email" required aria-label="Email for launch notification" />
+              <span class="form-error" id="notifyError" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Notify me</button>
+          </form>
+          <p class="form-status" id="notifyStatus" role="status"></p>
+          <div class="store-buttons" style="margin-top:2rem;">
+            <span class="store-btn disabled" aria-label="Coming soon to the Apple App Store">
+              <span aria-hidden="true">&#128225;</span><span>App Store</span>
+            </span>
+            <span class="store-btn disabled" aria-label="Coming soon to Google Play">
+              <span aria-hidden="true">&#128225;</span><span>Google Play</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-name">Pocket <b>AI</b> Labs</a>
+        <p>Building private, on-device mobile apps for iOS and Android — including SmartReceipts.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div>
+          <h4>Apps</h4>
+          <a href="cartoonify.html">Kartoonify</a>
+          <a href="smartreceipts.html">SmartReceipts</a>
+          <a href="#features">Features</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="index.html">Pocket AI Labs</a>
+          <a href="terms.html">Terms</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Pocket AI Labs. All rights reserved.</p>
+      <p class="footer-note">Designed for the device in your pocket.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pocket AI Labs builds mobile apps for iOS and Android with on-device AI — fast, private, and always working offline." />
+  <meta name="theme-color" content="#0b1021" />
+  <title>Pocket AI Labs — On-Device AI for Mobile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Pocket AI Labs home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="url(#g)" stroke-width="2.5"/>
+            <circle cx="16" cy="16" r="5" fill="url(#g)"/>
+            <path d="M16 6v4M16 22v4M6 16h4M22 16h4" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="g" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Pocket <b>AI</b> Labs</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#apps">Apps</a>
+        <a href="cartoonify.html">Kartoonify</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-sm btn-primary">Get in touch</a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">On-device AI · iOS &amp; Android</span>
+          <h1>Powerful AI that lives in your <span class="grad-text">pocket.</span></h1>
+          <p class="lede">
+            Pocket AI Labs builds mobile apps where intelligence runs directly on the device.
+            Faster responses, stronger privacy, and everything works &mdash; even without a connection.
+          </p>
+          <div class="hero-cta">
+            <a href="#apps" class="btn btn-primary">Explore our apps</a>
+            <a href="cartoonify.html" class="btn btn-ghost">Meet Kartoonify <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <ul class="hero-stats">
+            <li><b>0</b> data leaves your phone</li>
+            <li><b>Instant</b> inference</li>
+            <li><b>Offline</b> by default</li>
+          </ul>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="pulse-ring"></div>
+              <div class="ai-core">
+                <span class="ai-core-dot"></span>
+                <span class="ai-core-label">Running locally</span>
+              </div>
+              <div class="phone-metric"><span id="metricLat">12</span><small>ms latency</small></div>
+              <div class="phone-bar-row"><span style="--h:60%"></span><span style="--h:82%"></span><span style="--h:44%"></span><span style="--h:90%"></span></div>
+            </div>
+          </div>
+          <div class="floating-chip chip-1">🔒 Private</div>
+          <div class="floating-chip chip-2">⚡ Real-time</div>
+          <div class="floating-chip chip-3">📡 No cloud needed</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trusted" aria-label="Technologies">
+      <div class="container">
+        <p class="trusted-label">Built on leading on-device ML frameworks</p>
+        <ul class="trusted-logos">
+          <li>Core ML</li>
+          <li>TensorHub Lite</li>
+          <li>MediaPipe</li>
+          <li>ML Kit</li>
+          <li>ONNX Runtime</li>
+          <li>Neural Processing Units</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="features section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why Pocket AI Labs</span>
+          <h2>AI designed for the device in your hand</h2>
+          <p class="section-sub">
+            We engineer every app to run models natively, so you get smart features without
+            shipping user data to a server — and always on the fastest chip your phone offers.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-icon">🔒</div>
+            <h3>Privacy first</h3>
+            <p>Your data never leaves the device. No accounts, no uploads, no server-side copies to leak.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Blazing fast</h3>
+            <p>No round-trips to the cloud means near-instant responses, even on flaky connections.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">📡</div>
+            <h3>Works offline</h3>
+            <p>Full functionality in the air, underground, or anywhere without signal. Always available.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🎯</div>
+            <h3>Optimized models</h3>
+            <p>Quantized and pruned to run smoothly on older hardware while keeping the battery happy.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">📱</div>
+            <h3>Native quality</h3>
+            <p>Purpose-built for iOS and Android with fluid gestures and beautiful, responsive UI.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🎛️</div>
+            <h3>Hardware acceleration</h3>
+            <p>Models run on the fastest engine available — NPUs and GPUs — with an automatic CPU fallback so inference always has somewhere to run.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">🔋</div>
+            <h3>Efficient by design</h3>
+            <p>Smart device detection picks the right backend at runtime, keeping inference lightweight and power-conscious on any phone.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>From model to app, seamlessly</h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">01</span>
+            <div>
+              <h3>Select the right model</h3>
+              <p>We pick or train a model suited to the task &mdash; vision, language, audio, or otherwise &mdash; then optimize it for mobile.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <div>
+              <h3>Deploy on-device</h3>
+              <p>Models run natively via Core ML, TensorFlow Lite, or ONNX &mdash; no backend required to function.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <div>
+              <h3>Pick the fastest backend</h3>
+              <p>At runtime we prefer the device NPU or GPU, then fall back to the CPU automatically &mdash; so the model always runs fast, even on older hardware.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">04</span>
+            <div>
+              <h3>Deliver a great app</h3>
+              <p>Everything is wrapped in a delightful, fast, and accessible experience you'll enjoy using every day.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="apps section" id="apps">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What we build</span>
+          <h2>Mobile apps with a brain</h2>
+          <p class="section-sub">
+            From camera-powered tools to on-device assistants, our apps turn your phone into a
+            genuinely intelligent companion.
+          </p>
+        </div>
+        <div class="app-grid">
+          <figure class="app-card">
+            <div class="app-thumb thumb-1" aria-hidden="true">🎨</div>
+            <figcaption>
+              <h3>Kartoonify</h3>
+              <p>Turn any photo or selfie into a vibrant AI cartoon avatar — instantly, with zero uploads and full on-device processing.</p>
+              <span class="app-tag">Coming soon</span>
+            </figcaption>
+          </figure>
+          <figure class="app-card">
+            <div class="app-thumb thumb-2" aria-hidden="true">🧾</div>
+            <figcaption>
+              <h3>SmartReceipts</h3>
+              <p>Scan receipts and track spending with on-device AI — everything stays on your phone, works offline.</p>
+              <span class="app-tag">Coming soon</span>
+            </figcaption>
+          </figure>
+          <figure class="app-card">
+            <div class="app-thumb thumb-2" aria-hidden="true">📸</div>
+            <figcaption>
+              <h3>Camera Intelligence</h3>
+              <p>Real-time object detection, scene enhancement, and instant translation through the lens.</p>
+              <span class="app-tag">Vision</span>
+            </figcaption>
+          </figure>
+          <figure class="app-card">
+            <div class="app-thumb thumb-3" aria-hidden="true">🎙️</div>
+            <figcaption>
+              <h3>Voice Assistants</h3>
+              <p>Speech-to-text and commands that work offline, with private, on-device transcription.</p>
+              <span class="app-tag">Audio</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band section" id="contact">
+      <div class="container cta-inner">
+        <h2>Ready to build AI that respects your privacy?</h2>
+        <p>Whether you have a product idea or want to partner, we'd love to hear from you.</p>
+        <form class="cta-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required />
+            <span class="form-error" id="emailError" role="alert"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Say hello</button>
+        </form>
+        <p class="form-status" id="formStatus"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">Pocket <b>AI</b> Labs</span>
+        <p>Building the next generation of private, on-device mobile apps for iOS and Android — including Kartoonify.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div>
+          <h4>Products</h4>
+          <a href="cartoonify.html">Kartoonify</a>
+          <a href="smartreceipts.html">SmartReceipts</a>
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#contact">Contact</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Pocket AI Labs. All rights reserved.</p>
+      <p class="footer-note">Designed for the device in your pocket.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
