@@ -109,7 +109,6 @@
       padding: 0.55em 1.1em;
     }
     .cooking-chip .emoji { font-size: 1.15rem; }
-    .notify-form.busy-form { max-width: 460px; margin: 0 auto; }
     .busy-stats {
       display: flex;
       gap: 2.4rem;
@@ -130,10 +129,6 @@
       font-family: "Space Grotesk", sans-serif;
       font-size: 1.5rem;
       color: var(--text);
-    }
-    @media (max-width: 480px) {
-      .notify-form.busy-form { flex-direction: column; align-items: stretch; }
-      .notify-form.busy-form .btn { width: 100%; }
     }
   </style>
 </head>
@@ -183,16 +178,6 @@
           <li class="cooking-chip"><span class="emoji" aria-hidden="true">🔒</span> 100% on-device</li>
           <li class="cooking-chip"><span class="emoji" aria-hidden="true">📡</span> Works offline</li>
         </ul>
-
-        <form class="notify-form busy-form" id="notifyForm" novalidate>
-          <div class="field">
-            <label for="notifyEmail">Your email</label>
-            <input type="email" id="notifyEmail" name="notifyEmail" placeholder="you@example.com" autocomplete="email" required aria-label="Email for launch notification" />
-            <span class="form-error" id="notifyError" role="alert"></span>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg">Notify me at launch</button>
-        </form>
-        <p class="form-status" id="notifyStatus" role="status"></p>
 
         <ul class="busy-stats">
           <li><b>0</b>data leaves your phone</li>
