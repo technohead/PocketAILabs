@@ -4,14 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Kartoonify turns your photos and self-portraits into stunning AI cartoons — driven by Stable Diffusion 1.5, running entirely on-device on iPhone or Android, instantly and privately." />
+  <meta property="og:site_name" content="Pocket AI Labs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kartoonify — AI Cartoon Avatars · by Pocket AI Labs" />
+  <meta property="og:description" content="Kartoonify transforms your photos into vibrant AI cartoon avatars — powered by Stable Diffusion 1.5, running entirely on-device. Zero uploads." />
+  <meta property="og:image" content="assets/social/og-kartoonify.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kartoonify — AI Cartoon Avatars · by Pocket AI Labs" />
+  <meta name="twitter:description" content="Kartoonify transforms your photos into vibrant AI cartoon avatars — powered by Stable Diffusion 1.5, running entirely on-device. Zero uploads." />
+  <meta name="twitter:image" content="assets/social/og-kartoonify.svg" />
   <meta name="theme-color" content="#7C3AED" />
-  <title>Kartoonify — AI Cartoon Avatars · by Pocket AI Labs</title>
+    <title>Kartoonify — AI Cartoon Avatars · by Pocket AI Labs</title>
+  <link rel="icon" type="image/svg+xml" href="assets/social/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/social/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="cartoonify.css" />
 </head>
-<body>
+<body id="top">
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="Pocket AI Labs home">
@@ -73,12 +84,18 @@
         <div class="hero-visual" id="preview" aria-label="Before and after preview">
           <div class="comparison">
             <figure class="compare-side before">
-              <img class="avatar-placeholder" src="assets/images/kartoonify/original_512.png" alt="Original photo used in the Cartoonify demo" width="190" height="230" loading="lazy" />
+              <picture>
+  <source type="image/webp" srcset="assets/images/kartoonify/original_512.webp" />
+  <img class="avatar-placeholder" alt="Original photo used in the Cartoonify demo" width="190" height="230" loading="lazy">
+</picture>
               <figcaption>Original photo</figcaption>
             </figure>
             <div class="arrow" aria-hidden="true">&rarr;</div>
             <figure class="compare-side after">
-              <img class="avatar-placeholder filled" src="assets/images/kartoonify/fantasy_512.png" alt="Kartoonify output rendered from the original photo" width="190" height="230" loading="lazy" />
+              <picture>
+  <source type="image/webp" srcset="assets/images/kartoonify/fantasy_512.webp" />
+  <img class="avatar-placeholder filled" alt="Kartoonify output rendered from the original photo" width="190" height="230" loading="lazy">
+</picture>
               <figcaption>Kartoonify output</figcaption>
             </figure>
           </div>
@@ -94,12 +111,43 @@
         <p class="section-sub">Six built-in presets &mdash; pick the style that fits your mood, or write your own custom prompt to go beyond the defaults.</p>
       </div>
       <div class="style-grid">
-        <figure class="style-card s1"><img class="style-img" src="assets/images/kartoonify/cartoon_512.png" alt="Cartoon style output" width="220" height="275" loading="lazy" /><figcaption><b>Cartoon</b><span>Blocky colors &amp; crisp outlines</span></figcaption></figure>
-        <figure class="style-card s2"><img class="style-img" src="assets/images/kartoonify/anime_512.png" alt="Anime style output" width="220" height="275" loading="lazy" /><figcaption><b>Anime</b><span>Bright-eyed, big-haired animation</span></figcaption></figure>
-        <figure class="style-card s3"><img class="style-img" src="assets/images/kartoonify/oil_painting_512.png" alt="Oil Paint style output" width="220" height="275" loading="lazy" /><figcaption><b>Oil Paint</b><span>Rich, textured painterly strokes</span></figcaption></figure>
-        <figure class="style-card s4"><img class="style-img" src="assets/images/kartoonify/sketch_512.png" alt="Sketch style output" width="220" height="275" loading="lazy" /><figcaption><b>Sketch</b><span>Finely rendered graphite line-art</span></figcaption></figure>
-        <figure class="style-card s5"><img class="style-img" src="assets/images/kartoonify/water_color_512.png" alt="Water Color style output" width="220" height="275" loading="lazy" /><figcaption><b>Water Color</b><span>Soft, blended watercolor washes</span></figcaption></figure>
-        <figure class="style-card s6"><img class="style-img" src="assets/images/kartoonify/pixel_art_512.png" alt="Pixel Art style output" width="220" height="275" loading="lazy" /><figcaption><b>Pixel Art</b><span>Retro 8-bit style pixelation</span></figcaption></figure>
+        <figure class="style-card s1">
+      <picture>
+        <source type="image/webp" srcset="assets/images/kartoonify/cartoon_512.webp" />
+  <img class="style-img" alt="Cartoon style output" width="220" height="275" loading="lazy">
+
+      </picture>
+      <figcaption><b>Cartoon</b><span>Blocky colors &amp; crisp outlines</span></figcaption></figure>
+        <figure class="style-card s2"><picture>
+  <source type="image/webp" srcset="assets/images/kartoonify/anime_512.webp" />
+  <img class="style-img" alt="Anime style output" width="220" height="275" loading="lazy">
+
+      </picture>
+      <figcaption><b>Anime</b><span>Bright-eyed, big-haired animation</span></figcaption></figure>
+        <figure class="style-card s3"><picture>
+  <source type="image/webp" srcset="assets/images/kartoonify/oil_painting_512.webp" />
+  <img class="style-img" alt="Oil Paint style output" width="220" height="275" loading="lazy">
+
+      </picture>
+      <figcaption><b>Oil Paint</b><span>Rich, textured painterly strokes</span></figcaption></figure>
+        <figure class="style-card s4"><picture>
+  <source type="image/webp" srcset="assets/images/kartoonify/sketch_512.webp" />
+  <img class="style-img" alt="Sketch style output" width="220" height="275" loading="lazy">
+
+      </picture>
+      <figcaption><b>Sketch</b><span>Finely rendered graphite line-art</span></figcaption></figure>
+        <figure class="style-card s5"><picture>
+  <source type="image/webp" srcset="assets/images/kartoonify/water_color_512.webp" />
+  <img class="style-img" alt="Water Color style output" width="220" height="275" loading="lazy">
+
+      </picture>
+      <figcaption><b>Water Color</b><span>Soft, blended watercolor washes</span></figcaption></figure>
+        <figure class="style-card s6"><picture>
+  <source type="image/webp" srcset="assets/images/kartoonify/pixel_art_512.webp" />
+  <img class="style-img" alt="Pixel Art style output" width="220" height="275" loading="lazy">
+
+      </picture>
+      <figcaption><b>Pixel Art</b><span>Retro 8-bit style pixelation</span></figcaption></figure>
       </div>
     </section>
 
