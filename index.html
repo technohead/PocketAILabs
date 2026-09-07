@@ -22,7 +22,20 @@
       justify-content: center;
       text-align: center;
       padding: clamp(3rem, 8vw, 6rem) 0;
-      position: relative;
+    }
+    .hero-busy > .container {
+      width: min(1160px, 92%);
+      margin-inline: auto;
+    }
+    .busy-copy,
+    .cooking-strip,
+    .notify-form,
+    .busy-stats {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .busy-copy {
+      max-width: 620px;
     }
     .busy-badge {
       display: inline-flex;
@@ -124,7 +137,7 @@
     }
   </style>
 </head>
-<body id="top" style="display:flex; flex-direction:column; min-height:100vh;">
+<body id="top">
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Pocket AI Labs home">
@@ -145,7 +158,7 @@
     </div>
   </header>
 
-  <main style="flex:1 1 auto;">
+  <main>
     <section class="hero-busy">
       <div class="container">
         <div class="busy-hero-emoji" aria-hidden="true">👨‍🍳</div>
