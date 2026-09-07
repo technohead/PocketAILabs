@@ -3,20 +3,233 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pocket AI Labs builds mobile apps for iOS and Android with on-device AI — fast, private, and always working offline." />
+  <meta name="description" content="Kartoonify by Pocket AI Labs — Coming soon. Turn any photo into a vibrant AI cartoon avatar, on-device and private." />
   <meta name="theme-color" content="#0b1021" />
-  <title>Pocket AI Labs — On-Device AI for Mobile</title>
+  <title>Kartoonify — Coming Soon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ---------- Brand tokens (same palette as Pocket AI Labs) ---------- */
+    :root {
+      --bg: #0b1021;
+      --bg-soft: #111731;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-hi: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #e8ecf6;
+      --text-dim: #a7afc4;
+      --violet: #8b5cf6;
+      --cyan: #22d3ee;
+      --grad: linear-gradient(120deg, #8b5cf6 0%, #22d3ee 100%);
+      --radius: 18px;
+      --maxw: 1120px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient background glows (same look as the original hero) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(55% 50% at 78% 12%, rgba(139, 92, 246, 0.28), transparent 60%),
+        radial-gradient(55% 55% at 15% 82%, rgba(34, 211, 238, 0.20), transparent 62%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Header / brand ---------- */
+    .site-header {
+      padding: 1.6rem 0 1rem;
+    }
+    .header-inner {
+      width: min(var(--maxw), 92%);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .brand { display: flex; align-items: center; gap: 0.7rem; font-weight: 700; font-size: 1.2rem; }
+    .brand-mark { display: grid; place-items: center; }
+    .brand-name { font-family: "Space Grotesk", "Inter", sans-serif; letter-spacing: -0.02em; }
+    .brand-name b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* ---------- Main "coming soon" stage ---------- */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2.5rem, 7vw, 5rem) 0;
+    }
+    .stage {
+      width: min(var(--maxw), 92%);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      background: rgba(34, 211, 238, 0.1);
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      border-radius: 999px;
+      padding: 0.35em 0.8em;
+      margin-bottom: 1.2rem;
+    }
+
+    .copy h1 {
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+    }
+    .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    .lede { font-size: 1.15rem; color: var(--text-dim); max-width: 42ch; margin-bottom: 2rem; }
+
+    .watch {
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 2.4rem;
+    }
+    .watch-pulse {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--grad);
+      box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.6);
+      animation: pulse 2.4s ease-out infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.55); }
+      70% { box-shadow: 0 0 0 16px rgba(139, 92, 246, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+    }
+
+    .features { display: flex; flex-wrap: wrap; gap: 1.4rem; }
+    .features li { list-style: none; color: var(--text-dim); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+    .features li span { font-size: 1.1rem; }
+
+    /* ---------- Visual card ---------- */
+    .visual-wrap { display: grid; place-items: center; }
+    .coming-card {
+      position: relative;
+      width: min(340px, 100%);
+      background: linear-gradient(160deg, #1c2547, #0a0f20);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 1.2rem;
+      box-shadow: 0 40px 80px -24px rgba(0, 0, 0, 0.75), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+    .coming-frame {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .panel {
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 2.8rem;
+      position: relative;
+    }
+    .panel-original { background: linear-gradient(135deg, rgba(139,92,246,0.18), rgba(34,211,238,0.10)); }
+    .panel-art {
+      background: linear-gradient(135deg, rgba(139,92,246,0.35), rgba(34,211,238,0.22));
+      box-shadow: inset 0 0 24px rgba(139, 92, 246, 0.35);
+    }
+    .panel-label {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 0; right: 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .arrow { color: var(--cyan); font-size: 1.6rem; }
+
+    .float-chip {
+      position: absolute;
+      padding: 0.55em 0.95em;
+      border-radius: 999px;
+      background: var(--surface-hi);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+    .chip-1 { top: -12px; right: -10px; }
+    .chip-2 { bottom: 18px; left: -16px; animation: float 5s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: auto;
+    }
+    .footer-inner {
+      width: min(var(--maxw), 92%);
+      margin-inline: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+    .footer-inner a:hover { color: var(--cyan); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 880px) {
+      .stage { grid-template-columns: 1fr; text-align: left; }
+      .visual-wrap { order: -1; margin-bottom: 1rem; }
+      .watch { justify-content: flex-start; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="Pocket AI Labs home">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="brand" id="top" aria-label="Kartoonify home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="32" height="32" fill="none">
+          <svg viewBox="0 0 32 32" width="30" height="30" fill="none">
             <circle cx="16" cy="16" r="14" stroke="url(#g)" stroke-width="2.5"/>
             <circle cx="16" cy="16" r="5" fill="url(#g)"/>
             <path d="M16 6v4M16 22v4M6 16h4M22 16h4" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
@@ -27,261 +240,57 @@
             </defs>
           </svg>
         </span>
-        <span class="brand-name">Pocket <b>AI</b> Labs</span>
+        <span class="brand-name">Kartoon<b>ify</b></span>
       </a>
-
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#features">Features</a>
-        <a href="#how">How it works</a>
-        <a href="#apps">Apps</a>
-        <a href="cartoonify.html">Kartoonify</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a href="#contact" class="btn btn-sm btn-primary">Get in touch</a>
-
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <span class="eyebrow">On-device AI · iOS &amp; Android</span>
-          <h1>Powerful AI that lives in your <span class="grad-text">pocket.</span></h1>
-          <p class="lede">
-            Pocket AI Labs builds mobile apps where intelligence runs directly on the device.
-            Faster responses, stronger privacy, and everything works &mdash; even without a connection.
-          </p>
-          <div class="hero-cta">
-            <a href="#apps" class="btn btn-primary">Explore our apps</a>
-            <a href="cartoonify.html" class="btn btn-ghost">Meet Kartoonify <span aria-hidden="true">&rarr;</span></a>
-          </div>
-          <ul class="hero-stats">
-            <li><b>0</b> data leaves your phone</li>
-            <li><b>Instant</b> inference</li>
-            <li><b>Offline</b> by default</li>
-          </ul>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="phone">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <div class="pulse-ring"></div>
-              <div class="ai-core">
-                <span class="ai-core-dot"></span>
-                <span class="ai-core-label">Running locally</span>
-              </div>
-              <div class="phone-metric"><span id="metricLat">12</span><small>ms latency</small></div>
-              <div class="phone-bar-row"><span style="--h:60%"></span><span style="--h:82%"></span><span style="--h:44%"></span><span style="--h:90%"></span></div>
-            </div>
-          </div>
-          <div class="floating-chip chip-1">🔒 Private</div>
-          <div class="floating-chip chip-2">⚡ Real-time</div>
-          <div class="floating-chip chip-3">📡 No cloud needed</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="trusted" aria-label="Technologies">
-      <div class="container">
-        <p class="trusted-label">Built on leading on-device ML frameworks</p>
-        <ul class="trusted-logos">
-          <li>Core ML</li>
-          <li>TensorHub Lite</li>
-          <li>MediaPipe</li>
-          <li>ML Kit</li>
-          <li>ONNX Runtime</li>
-          <li>Neural Processing Units</li>
+    <div class="stage">
+      <div class="copy">
+        <span class="eyebrow">🎨 Coming soon</span>
+        <h1>Turn any photo into a <span class="grad-text">cartoon avatar.</span></h1>
+        <p class="lede">
+          Pocket AI Labs is building something new. Kartoonify turns your photos and selfies into
+          vibrant stylized art — instantly, on-device, with zero uploads.
+        </p>
+        <p class="watch"><span class="watch-pulse" aria-hidden="true"></span> Watch this space…</p>
+        <ul class="features">
+          <li><span aria-hidden="true">🔒</span> Privacy-first</li>
+          <li><span aria-hidden="true">⚡</span> Instant rendering</li>
+          <li><span aria-hidden="true">📡</span> Works offline</li>
         </ul>
       </div>
-    </section>
 
-    <section class="features section" id="features">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Why Pocket AI Labs</span>
-          <h2>AI designed for the device in your hand</h2>
-          <p class="section-sub">
-            We engineer every app to run models natively, so you get smart features without
-            shipping user data to a server — and always on the fastest chip your phone offers.
-          </p>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-icon">🔒</div>
-            <h3>Privacy first</h3>
-            <p>Your data never leaves the device. No accounts, no uploads, no server-side copies to leak.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">⚡</div>
-            <h3>Blazing fast</h3>
-            <p>No round-trips to the cloud means near-instant responses, even on flaky connections.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">📡</div>
-            <h3>Works offline</h3>
-            <p>Full functionality in the air, underground, or anywhere without signal. Always available.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">🎯</div>
-            <h3>Optimized models</h3>
-            <p>Quantized and pruned to run smoothly on older hardware while keeping the battery happy.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">📱</div>
-            <h3>Native quality</h3>
-            <p>Purpose-built for iOS and Android with fluid gestures and beautiful, responsive UI.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">🎛️</div>
-            <h3>Hardware acceleration</h3>
-            <p>Models run on the fastest engine available — NPUs and GPUs — with an automatic CPU fallback so inference always has somewhere to run.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">🔋</div>
-            <h3>Efficient by design</h3>
-            <p>Smart device detection picks the right backend at runtime, keeping inference lightweight and power-conscious on any phone.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="how section" id="how">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">How it works</span>
-          <h2>From model to app, seamlessly</h2>
-        </div>
-        <ol class="steps">
-          <li class="step">
-            <span class="step-num">01</span>
-            <div>
-              <h3>Select the right model</h3>
-              <p>We pick or train a model suited to the task &mdash; vision, language, audio, or otherwise &mdash; then optimize it for mobile.</p>
+      <div class="visual-wrap">
+        <div class="coming-card">
+          <div class="coming-frame">
+            <div class="panel panel-original">
+              📷
+              <span class="panel-label">Original</span>
             </div>
-          </li>
-          <li class="step">
-            <span class="step-num">02</span>
-            <div>
-              <h3>Deploy on-device</h3>
-              <p>Models run natively via Core ML, TensorFlow Lite, or ONNX &mdash; no backend required to function.</p>
+            <span class="arrow" aria-hidden="true">→</span>
+            <div class="panel panel-art">
+              🎨
+              <span class="panel-label">Kartoonified</span>
             </div>
-          </li>
-          <li class="step">
-            <span class="step-num">03</span>
-            <div>
-              <h3>Pick the fastest backend</h3>
-              <p>At runtime we prefer the device NPU or GPU, then fall back to the CPU automatically &mdash; so the model always runs fast, even on older hardware.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step-num">04</span>
-            <div>
-              <h3>Deliver a great app</h3>
-              <p>Everything is wrapped in a delightful, fast, and accessible experience you'll enjoy using every day.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="apps section" id="apps">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">What we build</span>
-          <h2>Mobile apps with a brain</h2>
-          <p class="section-sub">
-            From camera-powered tools to on-device assistants, our apps turn your phone into a
-            genuinely intelligent companion.
-          </p>
-        </div>
-        <div class="app-grid">
-          <figure class="app-card">
-            <div class="app-thumb thumb-1" aria-hidden="true">🎨</div>
-            <figcaption>
-              <h3>Kartoonify</h3>
-              <p>Turn any photo or selfie into a vibrant AI cartoon avatar — instantly, with zero uploads and full on-device processing.</p>
-              <span class="app-tag">Coming soon</span>
-            </figcaption>
-          </figure>
-          <figure class="app-card">
-            <div class="app-thumb thumb-2" aria-hidden="true">🧾</div>
-            <figcaption>
-              <h3>SmartReceipts</h3>
-              <p>Scan receipts and track spending with on-device AI — everything stays on your phone, works offline.</p>
-              <span class="app-tag">Coming soon</span>
-            </figcaption>
-          </figure>
-          <figure class="app-card">
-            <div class="app-thumb thumb-2" aria-hidden="true">📸</div>
-            <figcaption>
-              <h3>Camera Intelligence</h3>
-              <p>Real-time object detection, scene enhancement, and instant translation through the lens.</p>
-              <span class="app-tag">Vision</span>
-            </figcaption>
-          </figure>
-          <figure class="app-card">
-            <div class="app-thumb thumb-3" aria-hidden="true">🎙️</div>
-            <figcaption>
-              <h3>Voice Assistants</h3>
-              <p>Speech-to-text and commands that work offline, with private, on-device transcription.</p>
-              <span class="app-tag">Audio</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-band section" id="contact">
-      <div class="container cta-inner">
-        <h2>Ready to build AI that respects your privacy?</h2>
-        <p>Whether you have a product idea or want to partner, we'd love to hear from you.</p>
-        <form class="cta-form" id="contactForm" novalidate>
-          <div class="field">
-            <label for="email">Your email</label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" required />
-            <span class="form-error" id="emailError" role="alert"></span>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg">Say hello</button>
-        </form>
-        <p class="form-status" id="formStatus"></p>
+          <span class="float-chip chip-1">🎨 8+ styles</span>
+          <span class="float-chip chip-2">🔒 No uploads</span>
+        </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="brand-name">Pocket <b>AI</b> Labs</span>
-        <p>Building the next generation of private, on-device mobile apps for iOS and Android — including Kartoonify.</p>
-      </div>
-      <nav class="footer-nav" aria-label="Footer">
-        <div>
-          <h4>Products</h4>
-          <a href="cartoonify.html">Kartoonify</a>
-          <a href="smartreceipts.html">SmartReceipts</a>
-          <a href="#features">Features</a>
-          <a href="#how">How it works</a>
-        </div>
-        <div>
-          <h4>Company</h4>
-          <a href="#contact">Contact</a>
-          <a href="terms.html">Terms of Service</a>
-          <a href="#top">Back to top</a>
-        </div>
-      </nav>
-    </div>
-    <div class="container footer-bottom">
-      <p>&copy; <span id="year"></span> Pocket AI Labs. All rights reserved.</p>
-      <p class="footer-note">Designed for the device in your pocket.</p>
+    <div class="footer-inner">
+      <span>&copy; <span id="year"></span> Pocket AI Labs — Kartoonify.</span>
+      <span>Private, on-device AI for iOS &amp; Android.</span>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
