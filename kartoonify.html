@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="cartoonify.css" />
+  <link rel="stylesheet" href="kartoonify.css" />
 </head>
 <body id="top">
   <header class="site-header">
@@ -79,7 +79,7 @@
           <ul class="hero-points">
             <li><b>1 photo</b><span>in, 1 avatar out</span></li>
             <li><b>SD 1.5</b><span>on-device engine</span></li>
-            <li><b>0 uploads</b><span>always private</span></li>
+            <li><b>No uploads</b><span>unless you share</span></li>
           </ul>
         </div>
 
@@ -88,15 +88,15 @@
             <figure class="compare-side before">
               <picture>
   <source type="image/webp" srcset="assets/images/kartoonify/original_512.webp" />
-  <img class="avatar-placeholder" alt="Original photo used in the Cartoonify demo" width="190" height="230" loading="lazy">
+  <img class="avatar-placeholder" alt="Original photo used in the Kartoonify demo" width="190" height="230" loading="lazy">
 </picture>
               <figcaption>Original photo</figcaption>
             </figure>
             <div class="arrow" aria-hidden="true">&rarr;</div>
             <figure class="compare-side after">
               <picture>
-  <source type="image/webp" srcset="assets/images/kartoonify/fantasy_512.webp" />
-  <img class="avatar-placeholder filled" alt="Kartoonify output rendered from the original photo" width="190" height="230" loading="lazy">
+  <source type="image/webp" srcset="assets/images/kartoonify/output_512.webp" />
+  <img class="avatar-placeholder filled" alt="Kartoonify output rendered from the original photo" width="190" height="230" loading="lazy" src="assets/images/kartoonify/output_512.png" />
 </picture>
               <figcaption>Kartoonify output</figcaption>
             </figure>
@@ -119,37 +119,43 @@
   <img class="style-img" alt="Cartoon style output" width="220" height="275" loading="lazy">
 
       </picture>
-      <figcaption><b>Cartoon</b><span>Blocky colors &amp; crisp outlines</span></figcaption></figure>
+      <figcaption class="hover-caption"><b>Cartoon</b><span>Blocky colors &amp; crisp outlines</span></figcaption></figure>
         <figure class="style-card s2"><picture>
   <source type="image/webp" srcset="assets/images/kartoonify/anime_512.webp" />
   <img class="style-img" alt="Anime style output" width="220" height="275" loading="lazy">
 
       </picture>
-      <figcaption><b>Anime</b><span>Bright-eyed, big-haired animation</span></figcaption></figure>
+      <figcaption class="hover-caption"><b>Anime</b><span>Bright-eyed, big-haired animation</span></figcaption></figure>
         <figure class="style-card s3"><picture>
   <source type="image/webp" srcset="assets/images/kartoonify/oil_painting_512.webp" />
   <img class="style-img" alt="Oil Paint style output" width="220" height="275" loading="lazy">
 
       </picture>
-      <figcaption><b>Oil Paint</b><span>Rich, textured painterly strokes</span></figcaption></figure>
+      <figcaption class="hover-caption"><b>Oil Paint</b><span>Rich, textured painterly strokes</span></figcaption></figure>
         <figure class="style-card s4"><picture>
   <source type="image/webp" srcset="assets/images/kartoonify/sketch_512.webp" />
   <img class="style-img" alt="Sketch style output" width="220" height="275" loading="lazy">
 
       </picture>
-      <figcaption><b>Sketch</b><span>Finely rendered graphite line-art</span></figcaption></figure>
+      <figcaption class="hover-caption"><b>Sketch</b><span>Finely rendered graphite line-art</span></figcaption></figure>
         <figure class="style-card s5"><picture>
   <source type="image/webp" srcset="assets/images/kartoonify/water_color_512.webp" />
   <img class="style-img" alt="Water Color style output" width="220" height="275" loading="lazy">
 
       </picture>
-      <figcaption><b>Water Color</b><span>Soft, blended watercolor washes</span></figcaption></figure>
+      <figcaption class="hover-caption"><b>Water Color</b><span>Soft, blended watercolor washes</span></figcaption></figure>
         <figure class="style-card s6"><picture>
   <source type="image/webp" srcset="assets/images/kartoonify/pixel_art_512.webp" />
   <img class="style-img" alt="Pixel Art style output" width="220" height="275" loading="lazy">
 
       </picture>
-      <figcaption><b>Pixel Art</b><span>Retro 8-bit style pixelation</span></figcaption></figure>
+      <figcaption class="hover-caption"><b>Pixel Art</b><span>Retro 8-bit style pixelation</span></figcaption></figure>
+        <figure class="style-card s7"><picture>
+  <source type="image/webp" srcset="assets/images/kartoonify/output_512.webp" />
+  <img class="style-img" alt="Kartoonify style output" width="220" height="275" loading="lazy">
+
+      </picture>
+      <figcaption class="hover-caption"><b>Custom</b><span>Photo mode</span></figcaption></figure>
       </div>
     </section>
 
@@ -160,7 +166,7 @@
           <span class="kicker">Every knob, yours to turn</span>
           <h2>Fine-tune every detail</h2>
           <p class="section-sub">
-            Cartoonify isn't a black box. Four sliders — pure Dart, on-device — give
+            Kartoonify isn't a black box. Four sliders — pure Dart, on-device — give
             you precise control over the final look.
           </p>
         </div>
@@ -174,36 +180,51 @@
     </section>
 
     <!-- Make It Real -->
-    <section class="session" id="makeit">
-      <div class="container narrow">
+    <section class="session zazzle" id="makeit">
+      <div class="container">
         <div class="section-head">
           <span class="kicker">Own it in the real world</span>
-          <h2>Make It Real.</h2>
+          <h2>Make It Real &mdash; on Zazzle.</h2>
           <p class="section-sub">
-            Your new cartoon avatar deserves a physical form. The <b>Make It Real</b>
-            shelf turns any generated cartoon into a quality print — a stretched
-            canvas, a poster, a phone case, or a mug — shipped straight to your door.
+            Your new cartoon avatar deserves a physical form. Shop the official
+            <b>Kartoonify</b> store on Zazzle &mdash; premium canvas prints, posters,
+            tees, mugs and more. Every cartoon becomes a quality product, made to
+            order and shipped straight to your door.
           </p>
         </div>
-        <div class="style-grid">
-          <figure class="style-card m1">
-            <span class="style-emoji" aria-hidden="true">&#127912;</span>
-            <figcaption><b>Canvas</b><span>Gallery-worthy stretched canvas</span></figcaption>
-          </figure>
-          <figure class="style-card m2">
-            <span class="style-emoji" aria-hidden="true">&#128444;</span>
-            <figcaption><b>Poster</b><span>Bold, large-format poster</span></figcaption>
-          </figure>
-          <figure class="style-card m3">
-            <span class="style-emoji" aria-hidden="true">&#128241;</span>
-            <figcaption><b>Phone Case</b><span>Your avatar, always in hand</span></figcaption>
-          </figure>
-          <figure class="style-card m4">
-            <span class="style-emoji" aria-hidden="true">&#9749;</span>
-            <figcaption><b>Mug</b><span>Morning coffee, cartoon style</span></figcaption>
-          </figure>
+        <div class="zazzle-grid" id="zazzle-gallery">
+          <a class="zazzle-card" href="https://www.zazzle.com/store/kartoonify" target="_blank" rel="noopener sponsored">
+            <img src="assets/images/kartoonify/zazzle/canvas.jpg" alt="Kartoonify cartoon on a stretched canvas print" loading="lazy" />
+            <span class="zazzle-tag">Canvas Print</span>
+            <span class="zazzle-price">From $20</span>
+          </a>
+          <a class="zazzle-card" href="https://www.zazzle.com/store/kartoonify" target="_blank" rel="noopener sponsored">
+            <img src="assets/images/kartoonify/zazzle/print.jpg" alt="Kartoonify cartoon poster print" loading="lazy" />
+            <span class="zazzle-tag">Poster Print</span>
+            <span class="zazzle-price">From $32</span>
+          </a>
+          <a class="zazzle-card" href="https://www.zazzle.com/store/kartoonify" target="_blank" rel="noopener sponsored">
+            <img src="assets/images/kartoonify/zazzle/t-shirt.jpg" alt="Kartoonify cartoon printed on a t-shirt" loading="lazy" />
+            <span class="zazzle-tag">T-Shirt</span>
+            <span class="zazzle-price">From $19</span>
+          </a>
+          <a class="zazzle-card" href="https://www.zazzle.com/store/kartoonify" target="_blank" rel="noopener sponsored">
+            <img src="assets/images/kartoonify/zazzle/mugs.jpg" alt="Kartoonify cartoon mug" loading="lazy" />
+            <span class="zazzle-tag">Mug</span>
+            <span class="zazzle-price">From $17</span>
+          </a>
+          <a class="zazzle-card" href="https://www.zazzle.com/store/kartoonify" target="_blank" rel="noopener sponsored">
+            <img src="assets/images/kartoonify/zazzle/selfieboard.jpg" alt="Kartoonify cartoon printed on a selfie light board" loading="lazy" />
+            <span class="zazzle-tag">Selfie Board</span>
+            <span class="zazzle-price">Shop now</span>
+          </a>
+          <a class="zazzle-card zazzle-cta" href="https://www.zazzle.com/store/kartoonify" target="_blank" rel="noopener sponsored">
+            <span class="zazzle-cta-icon" aria-hidden="true">&#128082;</span>
+            <span class="zazzle-cta-text">See <b>all</b> Kartoonify products</span>
+            <span class="zazzle-cta-arrow" aria-hidden="true">&rarr;</span>
+          </a>
         </div>
-        <p class="makeit-note">Purchases are fulfilled by our print partners via affiliate links. We may earn a commission at no extra cost to you &mdash; every link is clearly disclosed.</p>
+        <p class="makeit-note">Products fulfilled by Zazzle &mdash; made to order, shipped straight to your door.</p>
       </div>
     </section>
 
@@ -259,7 +280,7 @@
           </p>
           <ul class="check-list">
             <li><span class="tick" aria-hidden="true">⚡</span> <b>Fastest backend first</b> &mdash; iOS uses in-process Metal; Android Snapdragon uses the NPU (QNN); non-Snapdragon Android uses the Vulkan GPU — with a seamless fallback to CPU when a backend isn't available.</li>
-            <li><span class="tick" aria-hidden="true">🔒</span> <b>100% private</b> &mdash; your photos never get uploaded or stored anywhere but your device.</li>
+            <li><span class="tick" aria-hidden="true">🔒</span> <b>100% private</b> &mdash; your photos stay on your device and aren't uploaded or stored anywhere &mdash; unless you choose to share an image or turn it into a product.</li>
             <li><span class="tick" aria-hidden="true">📡</span> <b>Works offline</b> &mdash; generate avatars on a flight, in a tunnel, or anywhere without signal.</li>
             <li><span class="tick" aria-hidden="true">🎯</span> <b>Face-perfect</b> &mdash; two-pass mask-based preservation with ML Kit keeps your likeness accurate.</li>
             <li><span class="tick" aria-hidden="true">📱</span> <b>Native quality</b> &mdash; built natively for iOS and Android with a buttery-smooth experience.</li>
@@ -283,8 +304,9 @@
           <h2>Your photos stay yours.</h2>
           <p class="section-sub">
             Kartoonify was built around one rule: <em>inference happens on the device.</em>
-            Your original photos never leave your phone, aren't sent to a server, and aren't
-            used to train anything. Face data is held only in memory during processing and
+            Your original photos stay on your phone &mdash; nothing is uploaded unless you
+            choose to share an image (by email, instant message, SMS, or another app) or turn
+            it into a product. Face data is held only in memory during processing and
             written to no database. <strong>We could not access your images even if we wanted to.</strong>
           </p>
         </div>
@@ -305,7 +327,7 @@
           </details>
           <details class="faq-item">
             <summary>Can I re-roll a result I didn't love?</summary>
-            <p>Absolutely. Hit <b>Regenerate</b> and Cartoonify re-renders with a fresh random seed using your current style and settings — infinite variations, no limit. You can also fine-tune with the detail sliders before deciding.</p>
+            <p>Absolutely. Hit <b>Regenerate</b> and Kartoonify re-renders with a fresh random seed using your current style and settings — infinite variations, no limit. You can also fine-tune with the detail sliders before deciding.</p>
           </details>
           <details class="faq-item">
             <summary>Do I need a strong phone or internet connection?</summary>
@@ -313,7 +335,7 @@
           </details>
           <details class="faq-item">
             <summary>Where do my photos go?</summary>
-            <p>Nowhere. All processing happens on your phone &mdash; no uploads, no cloud storage. Generated avatars live only in your camera roll, and any analytics are limited to non-image usage data.</p>
+            <p>On your phone. All processing happens locally &mdash; nothing is uploaded or stored in the cloud unless you choose to do so. Generated avatars live only in your camera roll. The only time an image leaves your device is if you actively share it (email, instant message, SMS, or another app) or turn it into a product through our print partners &mdash; and even then only the finished artwork you choose to send, never your originals. Any analytics are limited to non-image usage data.</p>
           </details>
           <details class="faq-item">
             <summary>How does the "Make It Real" shop work?</summary>
@@ -374,7 +396,7 @@
         </div>
         <div>
           <h4>Apps</h4>
-          <a href="cartoonify.html">Kartoonify</a>
+          <a href="kartoonify.html">Kartoonify</a>
           <a href="smartreceipts.html">SmartReceipts</a>
         </div>
         <div>

@@ -90,7 +90,7 @@ form.addEventListener("submit", (e) => {
   form.reset();
 });
 
-// --- Cartoonify: "Notify me" coming-soon form (client-side validation) ---
+// --- Kartoonify: "Notify me" coming-soon form (client-side validation) ---
 (function () {
   var form = document.getElementById("notifyForm");
   var email = document.getElementById("notifyEmail");
