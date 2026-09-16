@@ -155,24 +155,43 @@ a { color: inherit; text-decoration: none; }
 .gallery-session { padding-bottom: 2rem; }
 .style-grid { 
   display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
+  align-items: stretch;
 }
-.style-img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: center; display: block;
-  transition: transform 0.35s var(--ease);
+@media (max-width: 900px) {
+  .style-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
-.style-card:hover .style-img { transform: scale(1.06); }
+@media (max-width: 600px) {
+  .style-grid { 
+    grid-template-columns: 1fr; 
+  }
+}
 .style-card {
   position: relative; border-radius: var(--radius); overflow: hidden;
   background: var(--surface); border: 1px solid var(--line);
   cursor: pointer;
   display: flex; flex-direction: column;
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
-  align-items: stretch;
-  height: 400px;
+  height: 100%;
 }
+.style-card picture {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: block;
+  margin: 0;
+}
+.style-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s var(--ease);
+}
+.style-card:hover .style-img { transform: scale(1.06); }
 .style-card::before { content: ""; position: absolute; inset: 0; z-index: -1; }
 .style-emoji {
   position: absolute; top: 12%; left: 50%; transform: translateX(-50%);
@@ -184,10 +203,11 @@ a { color: inherit; text-decoration: none; }
 .style-card figcaption {
   position: relative;
   z-index: 2;
-  padding: 1.4rem 1.4rem 1.6rem;
+  padding: 1.2rem 1.2rem 1.4rem;
   background: linear-gradient(to top, rgba(12,8,26,0.92), rgba(12,8,26,0.55), rgba(12,8,26,0));
   color: #fff;
   flex-shrink: 0;
+  margin-top: auto;
 }
 .style-card figcaption b {
   display: block;
@@ -269,7 +289,7 @@ a { color: inherit; text-decoration: none; }
 .stat:hover { transform: translateY(-4px); border-color: rgba(236,72,153,0.5); }
 .stat b {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(2rem, 4vw, 2.4rem);
+  font-size: clamp(2rem, 5vw, 2.4rem);
   line-height: 1.05;
   font-weight: 800;
   display: block;
@@ -280,10 +300,11 @@ a { color: inherit; text-decoration: none; }
 }
 .stat span {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.35;
   display: block;
-  max-width: 100%;
+  width: 100%;
+  text-align: center;
 }
 
 /* ---------- Privacy ---------- */
@@ -423,15 +444,12 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
   margin: 3rem 0 2rem;
-}
-.zazzle-card {
-  height: 100%;
+  align-items: stretch;
 }
 .zazzle-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
   min-height: 300px;
   border-radius: 16px;
   overflow: hidden;
@@ -440,6 +458,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--line);
   background: var(--bg-2);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  text-align: left;
 }
 .zazzle-card:hover {
   transform: translateY(-4px);
@@ -453,6 +472,11 @@ a { color: inherit; text-decoration: none; }
   object-position: center;
   display: block;
   flex-shrink: 0;
+  margin: 0;
+}
+.zazzle-tag, .zazzle-price {
+  position: absolute;
+  z-index: 1;
 }
 .zazzle-tag {
   position: absolute;
@@ -467,6 +491,7 @@ a { color: inherit; text-decoration: none; }
   padding: 0.3rem 0.6rem;
   border-radius: 999px;
   backdrop-filter: blur(4px);
+  margin: 0;
 }
 .zazzle-price {
   position: absolute;
@@ -486,7 +511,6 @@ a { color: inherit; text-decoration: none; }
   border-color: transparent;
   color: #fff;
   text-align: center;
-  flex: 1;
 }
 .zazzle-card.zazzle-cta:hover {
   border-color: transparent;
