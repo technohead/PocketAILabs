@@ -260,11 +260,11 @@ a { color: inherit; text-decoration: none; }
 .perf-inner { display: grid; grid-template-columns: 1fr 0.9fr; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
 .perf-copy h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 1rem; }
 .perf-copy .kicker { margin-bottom: 1rem; }
-.check-list { list-style: none; display: grid; gap: 1.2rem; margin-top: 2rem; }
-.check-list li { display: flex; gap: 1rem; align-items: flex-start; color: var(--muted); }
-.check-list li .tick { flex: 0 0 auto; width: 28px; height: 28px; min-width: 28px; display: grid; place-items: center; border-radius: 8px; background: var(--grad-soft); font-size: 0.95rem; margin-top: 0.05rem; }
-.check-list li b { color: var(--text); }
-.check-list li span + b, .check-list li b + span { line-height: 1.5; }
+.check-list { list-style: none; display: grid; grid-template-columns: auto max-content 1fr; gap: 1.2rem 1rem; margin-top: 2rem; align-items: start; }
+.check-list li { display: contents; color: var(--muted); }
+.check-list li .tick { width: 28px; height: 28px; min-width: 28px; display: grid; place-items: center; border-radius: 8px; background: var(--grad-soft); font-size: 0.95rem; margin-top: 0.05rem; }
+.check-list li b { color: var(--text); line-height: 1.5; }
+.check-list li .desc { line-height: 1.5; }
 .perf-stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
