@@ -6,7 +6,8 @@ This script:
   1. Fetches each Zazzle product page using Python's urllib (bypasses Zazzle's
      bot detection that blocks curl/wget).
   2. Extracts the og:image meta tag (the main product preview image).
-  3. Downloads the image and saves it to the local assets directory.
+  3. Downloads the image and saves it to the local assets directory
+   (kartoonify/assets/images/kartoonify/zazzle/).
 
 The product URLs and local file mappings are defined in the PRODUCTS dict below,
 which mirrors the Zazzle cards in kartoonify.html (the "Make It Real" section).
@@ -15,7 +16,7 @@ Usage:
     python3 scripts/update_zazzle_images.py
 
 Run from the repository root.  Images are saved to
-assets/images/kartoonify/zazzle/.
+kartoonify/assets/images/kartoonify/zazzle/.
 """
 
 import urllib.request
@@ -53,7 +54,7 @@ PRODUCTS = [
 ]
 
 # Directory where images are saved (relative to repo root)
-IMAGE_DIR = os.path.join("assets", "images", "kartoonify", "zazzle")
+IMAGE_DIR = os.path.join("kartoonify", "assets", "images", "kartoonify", "zazzle")
 
 # HTTP headers that mimic a real browser — required to bypass Zazzle's
 # bot detection (curl/wget get a 403 "Are you a Robot?" page).
