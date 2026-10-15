@@ -13,8 +13,6 @@ No build step — HTML/CSS/JS is served as-is. Push to `main` triggers deploymen
 .
 ├── index.html              # Landing page
 ├── smartreceipts.html     # SmartReceipts product page
-├── terms.html              # Terms of service
-├── privacy.html            # Privacy Policy
 ├── css/                    # Shared styles
 ├── js/                     # Shared JavaScript
 ├── assets/social/          # Shared social/favicon images
@@ -24,6 +22,8 @@ No build step — HTML/CSS/JS is served as-is. Push to `main` triggers deploymen
 
 kartoonify/                 # Kartoonify product page (self-contained)
 ├── kartoonify.html         # Product page (Zazzle "Make It Real" section)
+├── terms.html              # Kartoonify Terms of Service
+├── privacy.html            # Kartoonify Privacy Policy
 ├── kartoonify.css          # Page styles
 ├── js/main.js              # Page JS
 ├── og-kartoonify.svg       # Social image (legacy; use assets/social/)
