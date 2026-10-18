@@ -101,3 +101,13 @@ fingerprinting or header ordering), but the method is reliable.
 - `python3 scripts/update_zazzle_images.py` — downloads latest Zazzle images
 - Open `kartoonify.html` in a browser to visually verify the "Make It Real" section
 - `file kartoonify/assets/images/kartoonify/zazzle/*.jpg` — verify images are valid JPEGs (630×630)
+
+## Legal pages — derived, not canonical
+
+`kartoonify/privacy.html` and `kartoonify/terms.html` are derived
+plain-language views of the canonical legal documents in the app repo:
+`PocketAILabs/kartoonify/PRIVACY_POLICY.md` and `TERMS_OF_SERVICE.md`.
+Legal edits land in the app repo first; re-sync these pages on every legal
+change (keep this site's structure and tone — they are not verbatim ports)
+and push `main` to deploy. The Kartoonify app's About sheet links to these
+pages via `CompileTimeConfig.privacyPolicyUrl` / `termsOfServiceUrl`.
