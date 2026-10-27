@@ -334,23 +334,26 @@
       <div class="container perf-inner">
         <div class="perf-copy">
           <span class="kicker">Engineered on-device</span>
-          <h2>A cartoon machine that runs in your pocket</h2>
+          <h2>A cartoon machine tuned to every chip</h2>
           <p class="section-sub">
-            Kartoonify is built to turn high-quality AI art into something fast and private
-            enough to use anywhere. No server, no wait, no data ever leaving your device.
+            Kartoonify talks to the fastest engine on the device, and <b>every chip
+            gets its own optimized pipeline</b>. iOS runs straight into Apple&rsquo;s
+            Neural Engine; Snapdragon drives its NPU directly. No server, no wait, no
+            data ever leaving your device.
           </p>
           <ul class="check-list">
-            <li><span class="tick" aria-hidden="true">⚡</span><b>Fastest backend first</b><span class="desc">&mdash; iOS uses in-process Metal; Android Snapdragon uses the NPU (QNN); non-Snapdragon Android uses the Vulkan GPU — with a seamless fallback to CPU when a backend isn't available.</span></li>
+            <li><span class="tick perf-check-highlight" aria-hidden="true">🍎</span><b>iOS → Neural Engine</b><span class="desc perf-check-highlight">&mdash; runs on Apple&rsquo;s <b>Core ML</b> pipeline on the Neural Engine, with Metal as a lightweight fallback. This is the fast path &mdash; a generation is roughly <b>10–20×</b> quicker than the older Metal-only route, using only a handful of sampling steps.</span></li>
+            <li><span class="tick perf-check-highlight" aria-hidden="true">⚙️</span><b>Snapdragon → NPU</b><span class="desc perf-check-highlight">&mdash; routes to Qualcomm&rsquo;s <b>QNN / HTP</b> NPU, matched to the exact Snapdragon generation (V68, V69, V73+). Everything else on Android falls back to the Vulkan GPU, then the CPU.</span></li>
             <li><span class="tick" aria-hidden="true">🔒</span><b>100% private</b><span class="desc">&mdash; your photos stay on your device and aren't uploaded or stored anywhere &mdash; unless you choose to share an image or turn it into a product.</span></li>
             <li><span class="tick" aria-hidden="true">📡</span><b>Works offline</b><span class="desc">&mdash; generate avatars on a flight, in a tunnel, or anywhere without signal.</span></li>
             <li><span class="tick" aria-hidden="true">🎯</span><b>Face-perfect</b><span class="desc">&mdash; two-pass mask-based preservation with ML Kit keeps your likeness accurate.</span></li>
-            <li><span class="tick" aria-hidden="true">📱</span><b>Native quality</b><span class="desc">&mdash; built natively for iOS and Android with a buttery-smooth experience.</span></li>
+            <li><span class="tick" aria-hidden="true">🔄</span><b>Graceful fallback</b><span class="desc">&mdash; if a fast backend is unavailable (older phones, throttling), Kartoonify seamlessly moves to the next engine &mdash; never stalls.</span></li>
           </ul>
         </div>
         <div class="perf-stats">
-          <div class="stat"><b>SD 1.5</b><span>img2img engine</span></div>
-          <div class="stat"><b>3</b><span>backends: NPU · GPU · CPU</span></div>
-          <div class="stat"><b>6</b><span>art styles</span></div>
+          <div class="stat"><b>10–20×</b><span>NE vs Metal-only</span></div>
+          <div class="stat"><b>HTP NPU</b><span>Snapdragon QNN</span></div>
+          <div class="stat"><b>3–4</b><span>optimal backends</span></div>
           <div class="stat"><b>0</b><span>photos uploaded</span></div>
         </div>
       </div>
@@ -396,7 +399,7 @@
           </details>
           <details class="faq-item">
             <summary>Do I need a strong phone or internet connection?</summary>
-            <p>Nope. The AI runs entirely on your device via its fastest engine (Metal, NPU, or GPU) and automatically falls back to the CPU on older phones. It works fully offline — on first launch it downloads the ~1&nbsp;GB model once, then everything runs locally.</p>
+            <p>Nope. Kartoonify uses the phone&rsquo;s fastest engine automatically &mdash; Apple&rsquo;s Neural Engine on iOS, Qualcomm&rsquo;s NPU on Snapdragon, the Vulkan GPU otherwise &mdash; and falls back to the CPU on older phones, so it runs smoothly almost anywhere. It works fully offline — on first launch it downloads the ~1&nbsp;GB model once, then everything runs locally.</p>
           </details>
           <details class="faq-item">
             <summary>Where do my photos go?</summary>
