@@ -69,6 +69,7 @@ const formStatus = document.getElementById("formStatus");
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+if (form && email) {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   emailError.textContent = "";
@@ -89,6 +90,7 @@ form.addEventListener("submit", (e) => {
   formStatus.textContent = `Thanks! We'll reach out to ${value} shortly.`;
   form.reset();
 });
+}
 
 // --- Kartoonify: "Notify me" coming-soon form (client-side validation) ---
 (function () {
@@ -115,7 +117,7 @@ form.addEventListener("submit", (e) => {
       email.focus();
       return;
     }
-    if (status) status.textContent = "Thanks &mdash; we'll ping " + value + " when Kartoonify launches!";
+    if (status) status.textContent = "Thanks &mdash; we'll ping " + value + " when Kartoonify Lite launches!";
     form.reset();
   });
 })();

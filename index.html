@@ -109,6 +109,13 @@
       padding: 0.55em 1.1em;
     }
     .cooking-chip .emoji { font-size: 1.15rem; }
+    .cooking-chip a {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      transition: color 0.2s;
+    }
+    .cooking-chip a:hover { color: var(--cyan); }
     .busy-stats {
       display: flex;
       gap: 2.4rem;
@@ -172,8 +179,8 @@
         </div>
 
         <ul class="cooking-strip">
-          <li class="cooking-chip"><span class="emoji" aria-hidden="true">🎨</span> Kartoonify</li>
-          <li class="cooking-chip"><span class="emoji" aria-hidden="true">🧾</span> SmartReceipts</li>
+          <li class="cooking-chip"><a href="kartoonify/kartoonify.html"><span class="emoji" aria-hidden="true">🎨</span> Kartoonify</a></li>
+          <li class="cooking-chip"><a href="smartreceipts.html"><span class="emoji" aria-hidden="true">🧾</span> SmartReceipts</a></li>
           <li class="cooking-chip"><span class="emoji" aria-hidden="true">🔒</span> 100% on-device</li>
           <li class="cooking-chip"><span class="emoji" aria-hidden="true">📡</span> Works offline</li>
         </ul>
