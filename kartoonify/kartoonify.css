@@ -486,9 +486,9 @@ a { color: inherit; text-decoration: none; }
   .privacy-ico { font-size: 3.4rem; }
   .footer-inner { grid-template-columns: 1fr; }
 }
-/* Nav collapses to a hamburger on viewports where the 11-link bar
-   can't fit on one line (needs ~1100px of container width) */
-@media (max-width: 1279px) {
+/* Nav collapses to a hamburger on viewports where the 10-link bar
+   can't fit on one line (needs ~800px of container width) */
+@media (max-width: 959px) {
   .main-nav { display: none; }
   .nav-toggle { display: flex; }
   .main-nav.open {
