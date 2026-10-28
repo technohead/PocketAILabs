@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pailabs" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b1021"/>
+  <path d="M23 52V12" stroke="url(#pailabs)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="35" cy="25" r="12.5" stroke="url(#pailabs)" stroke-width="4" fill="none"/>
+  <circle cx="35" cy="25" r="4.2" fill="url(#pailabs)"/>
+</svg>

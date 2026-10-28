@@ -21,10 +21,10 @@
   <rect width="1200" height="630" fill="url(#g1)"/>
   <rect width="1200" height="630" fill="url(#g2)"/>
   <!-- logo mark -->
-  <g transform="translate(80,70)">
-    <circle cx="30" cy="30" r="27" stroke="url(#grad)" stroke-width="5" fill="none"/>
-    <circle cx="30" cy="30" r="11" fill="url(#grad)"/>
-    <path d="M30 9v7M30 44v7M9 30h7M44 30h7" stroke="url(#grad)" stroke-width="4" stroke-linecap="round"/>
+  <g transform="translate(80,70) scale(0.94)">
+    <path d="M23 52V12" stroke="url(#grad)" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="35" cy="25" r="12.5" stroke="url(#grad)" stroke-width="4" fill="none"/>
+    <circle cx="35" cy="25" r="4.2" fill="url(#grad)"/>
   </g>
   <text x="128" y="92" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#e8ecf6">Pocket <tspan fill="url(#grad)">AI</tspan> Labs</text>
   <!-- headline -->

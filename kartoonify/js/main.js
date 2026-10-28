@@ -92,36 +92,6 @@ form.addEventListener("submit", (e) => {
 });
 }
 
-// --- Kartoonify: "Notify me" coming-soon form (client-side validation) ---
-(function () {
-  var form = document.getElementById("notifyForm");
-  var email = document.getElementById("notifyEmail");
-  var error = document.getElementById("notifyError");
-  var status = document.getElementById("notifyStatus");
-  if (!form || !email) return;
-  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (error) error.textContent = "";
-    if (status) status.textContent = "";
-
-    var value = email.value.trim();
-    if (!value) {
-      if (error) error.textContent = "Please enter your email.";
-      email.focus();
-      return;
-    }
-    if (!EMAIL_RE.test(value)) {
-      if (error) error.textContent = "That email looks off &mdash; try again.";
-      email.focus();
-      return;
-    }
-    if (status) status.textContent = "Thanks &mdash; we'll ping " + value + " when Kartoonify Lite launches!";
-    form.reset();
-  });
-})();
-
 // --- SmartReceipts: "Notify me" coming-soon form (client-side validation) ---
 (function () {
   var form = document.getElementById("notifyForm");
