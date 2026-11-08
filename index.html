@@ -137,51 +137,6 @@
       font-size: 1.5rem;
       color: var(--text);
     }
-    .busy-progress {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      max-width: 420px;
-      margin: 0 auto 2.8rem;
-      padding: 1.2rem 1.4rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-    }
-    .busy-progress-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--cyan);
-    }
-    .busy-progress-row {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .pbar {
-      flex: 1;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(34, 211, 238, 0.12);
-      overflow: hidden;
-    }
-    .pbar span {
-      display: block;
-      height: 100%;
-      width: var(--w);
-      border-radius: 999px;
-      background: var(--grad);
-      transition: width 0.6s var(--ease);
-    }
-    .progress-sub {
-      flex: 0 0 auto;
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      white-space: nowrap;
-      max-width: 140px;
-    }
   </style>
 </head>
 <body id="top">
@@ -229,22 +184,6 @@
           <li class="cooking-chip"><span class="emoji" aria-hidden="true">🔒</span> 100% on-device</li>
           <li class="cooking-chip"><span class="emoji" aria-hidden="true">📡</span> Works offline</li>
         </ul>
-        <div class="busy-progress">
-          <span class="busy-progress-label">In progress</span>
-          <div class="busy-progress-row">
-            <div class="pbar"><span style="--w: 75%"></span></div>
-            <span class="progress-sub">Receipts &middot; ~Q1 2027</span>
-          </div>
-          <div class="busy-progress-row">
-            <div class="pbar"><span style="--w: 35%"></span></div>
-            <span class="progress-sub">Notes app &middot; ~Q2 2027</span>
-          </div>
-          <div class="busy-progress-row">
-            <div class="pbar"><span style="--w: 60%"></span></div>
-            <span class="progress-sub">Zoom tool &middot; ~Q2 2027</span>
-          </div>
-        </div>
-
         <ul class="busy-stats">
           <li><b>0</b>data leaves your phone</li>
           <li><b>1</b>app live now</li>
