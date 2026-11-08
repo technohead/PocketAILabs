@@ -3,139 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pocket AI Labs — Building private, on-device mobile AI apps. Something's cooking…" />
+  <meta name="description" content="Pocket AI Labs — Building private, on-device AI apps for iOS and Android. Kartoonify is live now. Something's cooking…" />
   <meta name="theme-color" content="#0b1021" />
   <link rel="icon" type="image/svg+xml" href="assets/social/favicon.svg" />
   <link rel="apple-touch-icon" href="assets/social/favicon.svg" />
-  <title>Pocket AI Labs — Something's cooking…</title>
+  <title>Pocket AI Labs — On-device AI apps · Pocket AI Labs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    /* ---------- Coming-soon "cooking" page styles ---------- */
-    .hero-busy {
+    /* ---------- Studio / app-lineup styles ---------- */
+    .studio-hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: clamp(3rem, 8vw, 6rem) 0;
+      padding: clamp(4rem, 10vw, 8rem) 0 clamp(3rem, 7vw, 5rem);
+      position: relative;
     }
-    .hero-busy > .container {
-      width: min(1160px, 92%);
-      margin-inline: auto;
+    .studio-hero > .container { width: min(1160px, 92%); }
+    .studio-badge {
+      display: inline-flex; align-items: center; gap: 0.55em;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--cyan);
+      background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.3);
+      border-radius: 999px; padding: 0.45em 1em; margin-bottom: 2rem;
     }
-    .busy-copy,
-    .cooking-strip,
-    .notify-form,
-    .busy-stats {
-      margin-left: auto;
-      margin-right: auto;
+    .studio-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 0 rgba(34,211,238,0.6); animation: badgePulse 2s ease-out infinite; }
+    @keyframes badgePulse { 0% { box-shadow: 0 0 0 0 rgba(34,211,238,0.5); } 70% { box-shadow: 0 0 0 10px rgba(34,211,238,0); } 100% { box-shadow: 0 0 0 0 rgba(34,211,238,0); } }
+    .studio-copy h1 {
+      font-size: clamp(2.4rem, 6.5vw, 4rem); font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.025em; margin-bottom: 1.3rem; max-width: 22ch;
     }
-    .busy-copy {
-      max-width: 620px;
+    .studio-copy h1 .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .studio-sub { font-size: 1.18rem; color: var(--text-dim); max-width: 46ch; margin: 0 auto 2.6rem; line-height: 1.55; }
+    .studio-sub a { color: var(--cyan); text-decoration: none; border-bottom: 1px solid rgba(34,211,238,0.4); }
+    .studio-sub a:hover { border-bottom-color: var(--cyan); }
+    .studio-cta { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.4rem; }
+    .studio-principles { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+    .studio-principles li { list-style: none; color: var(--text-dim); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.15em; }
+    .studio-principles li b { display: block; font-family: "Space Grotesk", sans-serif; font-size: 1.15rem; color: var(--text); }
+
+    /* ---------- App cards ---------- */
+    .apps-section { padding: clamp(4rem, 10vw, 7rem) 0; }
+    .apps-section .section-head { margin-bottom: 3rem; }
+    .app-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: stretch; }
+    .app-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; transition: transform 0.3s var(--ease), border-color 0.3s, background 0.3s;
+      display: flex; flex-direction: column; height: 100%;
     }
-    .busy-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55em;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      background: rgba(34, 211, 238, 0.1);
-      border: 1px solid rgba(34, 211, 238, 0.3);
-      border-radius: 999px;
-      padding: 0.45em 1em;
-      margin-bottom: 2rem;
-    }
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.6);
-      animation: badgePulse 2s ease-out infinite;
-    }
-    @keyframes badgePulse {
-      0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.5); }
-      70% { box-shadow: 0 0 0 10px rgba(34, 211, 238, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
-    }
-    .busy-hero-emoji {
-      font-size: clamp(4.5rem, 14vw, 8rem);
-      line-height: 1;
-      margin-bottom: 1.5rem;
-      animation: bob 3.2s ease-in-out infinite;
-    }
-    @keyframes bob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .busy-copy { max-width: 620px; }
-    .busy-copy h1 {
-      font-size: clamp(2.2rem, 6vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.2rem;
-    }
-    .copy-sub {
-      font-size: 1.15rem;
-      color: var(--text-dim);
-      max-width: 44ch;
-      margin: 0 auto 2.4rem;
-    }
-    .cooking-strip {
-      display: flex;
-      gap: 1.4rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 2.6rem;
-    }
-    .cooking-chip {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      font-size: 0.92rem;
-      font-weight: 500;
-      color: var(--text);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.55em 1.1em;
-    }
-    .cooking-chip .emoji { font-size: 1.15rem; }
-    .cooking-chip a {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      transition: color 0.2s;
-    }
-    .cooking-chip a:hover { color: var(--cyan); }
-    .busy-stats {
-      display: flex;
-      gap: 2.4rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 3.2rem;
-    }
-    .busy-stats li {
-      list-style: none;
-      color: var(--text-dim);
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2em;
-    }
-    .busy-stats b {
-      display: block;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 1.5rem;
-      color: var(--text);
+    .app-card:hover { transform: translateY(-6px); border-color: rgba(34,211,238,0.4); }
+    .app-thumb { height: 160px; display: grid; place-items: center; font-size: 3.6rem; }
+    .thumb-live { background: linear-gradient(135deg, rgba(34,211,238,0.22), rgba(139,92,246,0.12)); }
+    .thumb-wip { background: linear-gradient(135deg, rgba(139,92,246,0.22), rgba(34,211,238,0.12)); }
+    .app-card figcaption { padding: 1.8rem; display: flex; flex-direction: column; flex: 1; }
+    .app-card figcaption h3 { font-size: 1.4rem; margin-bottom: 0.4rem; }
+    .app-card figcaption p { color: var(--text-dim); font-size: 0.96rem; flex: 1; margin-bottom: 1.2rem; }
+    .app-meta { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.1rem; flex-wrap: wrap; }
+    .status-pill { display: inline-flex; align-items: center; gap: 0.4em; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3em 0.75em; border-radius: 999px; }
+    .status-live { color: #14b8a6; background: rgba(20,184,166,0.12); border: 1px solid rgba(20,184,166,0.35); }
+    .status-live .dot { width: 7px; height: 7px; border-radius: 50%; background: #14b8a6; }
+    .status-wip { color: var(--cyan); background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.3); }
+    .status-wip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); }
+    .app-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-dim); }
+    .app-card .card-cta { margin-top: auto; }
+
+    @media (max-width: 640px) {
+      .studio-principles { gap: 1.4rem; }
+      .app-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -161,35 +100,74 @@
   </header>
 
   <main>
-    <section class="hero-busy">
+    <!-- Hero -->
+    <section class="studio-hero">
       <div class="container">
-        <div class="busy-hero-emoji" aria-hidden="true">👨‍🍳</div>
-
-        <span class="busy-badge">
-          <span class="badge-dot" aria-hidden="true"></span>
-          Something's cooking
-        </span>
-
-        <div class="busy-copy">
-          <h1>One app is live. <span class="grad-text">Two more are cooking.</span></h1>
-          <p class="copy-sub">
-            We're building private, on-device AI apps for iOS &amp; Android &mdash; the kind of
-            intelligence that runs on your phone, not a server. <a href="kartoonify/kartoonify.html">Kartoonify Lite is now on the Play Store</a>, while two more apps get ready.
+        <span class="studio-badge"><span class="dot" aria-hidden="true"></span> Private. On-device. No cloud.</span>
+        <div class="studio-copy">
+          <h1>AI that runs <span class="grad-text">right here.</span> on your phone.</h1>
+          <p class="studio-sub">
+            Pocket AI Labs builds small, thoughtful apps for iOS and Android &mdash; the kind of
+            intelligence that runs on your device, not a server. <a href="kartoonify/kartoonify.html">Kartoonify is live now</a>, and <a href="pocket-diary">Pocket Diary</a> is coming soon.
           </p>
         </div>
 
-        <ul class="cooking-strip">
-          <li class="cooking-chip"><a href="kartoonify/kartoonify.html"><span class="emoji" aria-hidden="true">🎨</span> Kartoonify <span class="emoji" aria-hidden="true">✓</span></a></li>
+        <div class="studio-cta">
+          <a href="kartoonify/kartoonify.html" class="btn btn-primary">Explore Kartoonify</a>
+          <a href="#apps" class="btn btn-ghost">See all apps <span aria-hidden="true">&rarr;</span></a>
+        </div>
 
-          <li class="cooking-chip"><span class="emoji" aria-hidden="true">🔒</span> 100% on-device</li>
-          <li class="cooking-chip"><span class="emoji" aria-hidden="true">📡</span> Works offline</li>
-        </ul>
-        <ul class="busy-stats">
+        <ul class="studio-principles">
           <li><b>0</b>data leaves your phone</li>
           <li><b>1</b>app live now</li>
-          <li><b>2</b>apps in progress</li>
+          <li><b>1</b>in progress</li>
           <li><b>100%</b>private by design</li>
         </ul>
+      </div>
+    </section>
+
+    <!-- App lineup -->
+    <section class="apps-section" id="apps">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Our apps</span>
+          <h2>Everything you need. Nothing you shouldn't.</h2>
+          <p class="section-sub">Each app is built from the same principle: your data stays yours, inference stays local, and nothing ever leaves the device.</p>
+        </div>
+
+        <div class="app-cards">
+          <!-- Kartoonify -->
+          <article class="app-card">
+            <figure class="app-thumb thumb-live" aria-hidden="true">🎨</figure>
+            <figcaption>
+              <div class="app-meta">
+                <span class="status-pill status-live"><span class="dot" aria-hidden="true"></span> Live now</span>
+                <span class="app-tag">Android · iOS</span>
+              </div>
+              <h3>Kartoonify</h3>
+              <p>Turn your photos into stylized cartoon art with a Stable Diffusion engine that runs entirely on your phone. No uploads, no account, no subscription.</p>
+              <div class="card-cta">
+                <a href="kartoonify/kartoonify.html" class="btn btn-primary">Try Kartoonify</a>
+              </div>
+            </figcaption>
+          </article>
+
+          <!-- Pocket Diary -->
+          <article class="app-card">
+            <figure class="app-thumb thumb-wip" aria-hidden="true">📔</figure>
+            <figcaption>
+              <div class="app-meta">
+                <span class="status-pill status-wip"><span class="dot" aria-hidden="true"></span> In development</span>
+                <span class="app-tag">iOS · Android</span>
+              </div>
+              <h3>Pocket Diary</h3>
+              <p>A private, child-friendly diary with an on-device AI companion named Nova. Write about your day, attach a photo or voice memo &mdash; everything stays encrypted on your device.</p>
+              <div class="card-cta">
+                <a href="pocket-diary" class="btn btn-ghost">Get notified</a>
+              </div>
+            </figcaption>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -202,8 +180,9 @@
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <div>
-          <h4>Products</h4>
+          <h4>Apps</h4>
           <a href="kartoonify/kartoonify.html">Kartoonify</a>
+          <a href="pocket-diary">Pocket Diary</a>
         </div>
         <div>
           <h4>Company</h4>
