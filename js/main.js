@@ -69,28 +69,30 @@ const email = document.getElementById("email");
 const emailError = document.getElementById("emailError");
 const formStatus = document.getElementById("formStatus");
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (form && email && emailError && formStatus) {
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  emailError.textContent = "";
-  formStatus.textContent = "";
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    emailError.textContent = "";
+    formStatus.textContent = "";
 
-  const value = email.value.trim();
-  if (!value) {
-    emailError.textContent = "Please enter your email.";
-    email.focus();
-    return;
-  }
-  if (!EMAIL_RE.test(value)) {
-    emailError.textContent = "That email looks off — try again.";
-    email.focus();
-    return;
-  }
+    const value = email.value.trim();
+    if (!value) {
+      emailError.textContent = "Please enter your email.";
+      email.focus();
+      return;
+    }
+    if (!EMAIL_RE.test(value)) {
+      emailError.textContent = "That email looks off — try again.";
+      email.focus();
+      return;
+    }
 
-  formStatus.textContent = `Thanks! We'll reach out to ${value} shortly.`;
-  form.reset();
-});
+    formStatus.textContent = `Thanks! We'll reach out to ${value} shortly.`;
+    form.reset();
+  });
+}
 
 // --- Kartoonify: "Notify me" coming-soon form (client-side validation) ---
 (function () {

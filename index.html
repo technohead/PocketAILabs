@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    /* ---------- Studio / app-lineup styles ---------- */
+    /* ---------- Hero ---------- */
     .studio-hero {
       min-height: 100vh;
       display: flex;
@@ -21,8 +21,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: clamp(4rem, 10vw, 8rem) 0 clamp(3rem, 7vw, 5rem);
-      position: relative;
+      padding: clamp(4rem, 10vw, 7rem) 0;
     }
     .studio-hero > .container { width: min(1160px, 92%); }
     .studio-badge {
@@ -38,39 +37,49 @@
       font-size: clamp(2.4rem, 6.5vw, 4rem); font-weight: 800; line-height: 1.08;
       letter-spacing: -0.025em; margin-bottom: 1.3rem; max-width: 22ch;
     }
-    .studio-copy h1 .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .studio-sub { font-size: 1.18rem; color: var(--text-dim); max-width: 46ch; margin: 0 auto 2.6rem; line-height: 1.55; }
     .studio-sub a { color: var(--cyan); text-decoration: none; border-bottom: 1px solid rgba(34,211,238,0.4); }
     .studio-sub a:hover { border-bottom-color: var(--cyan); }
     .studio-cta { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.4rem; }
-    .studio-principles { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
-    .studio-principles li { list-style: none; color: var(--text-dim); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.15em; }
-    .studio-principles li b { display: block; font-family: "Space Grotesk", sans-serif; font-size: 1.15rem; color: var(--text); }
+    .studio-principles { display: flex; gap: 2.6rem; justify-content: center; flex-wrap: wrap; list-style: none; }
+    .studio-principles li { color: var(--text-dim); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.15em; }
+    .studio-principles li b { display: block; font-family: "Space Grotesk", sans-serif; font-size: 1.3rem; color: var(--text); }
 
-    /* ---------- App cards ---------- */
+    /* ---------- Section kicker (matches kartoonify.css) ---------- */
+    .kicker {
+      display: inline-block; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet, #a855f7);
+      background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 0.35em 0.85em; border-radius: 999px; margin-bottom: 1.1rem;
+    }
+
+    /* ---------- App lineup ---------- */
     .apps-section { padding: clamp(4rem, 10vw, 7rem) 0; }
-    .apps-section .section-head { margin-bottom: 3rem; }
     .app-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: stretch; }
     .app-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
       overflow: hidden; transition: transform 0.3s var(--ease), border-color 0.3s, background 0.3s;
       display: flex; flex-direction: column; height: 100%;
     }
-    .app-card:hover { transform: translateY(-6px); border-color: rgba(34,211,238,0.4); }
-    .app-thumb { height: 160px; display: grid; place-items: center; font-size: 3.6rem; }
+    .app-card:hover { transform: translateY(-6px); border-color: rgba(34,211,238,0.4); background: var(--surface-hi); }
+    .app-thumb { position: relative; height: 190px; overflow: hidden; display: grid; place-items: center; }
+    .app-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .app-thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,16,33,0) 55%, rgba(11,16,33,0.55)); }
     .thumb-live { background: linear-gradient(135deg, rgba(34,211,238,0.22), rgba(139,92,246,0.12)); }
     .thumb-wip { background: linear-gradient(135deg, rgba(139,92,246,0.22), rgba(34,211,238,0.12)); }
-    .app-card figcaption { padding: 1.8rem; display: flex; flex-direction: column; flex: 1; }
-    .app-card figcaption h3 { font-size: 1.4rem; margin-bottom: 0.4rem; }
-    .app-card figcaption p { color: var(--text-dim); font-size: 0.96rem; flex: 1; margin-bottom: 1.2rem; }
-    .app-meta { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.1rem; flex-wrap: wrap; }
-    .status-pill { display: inline-flex; align-items: center; gap: 0.4em; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3em 0.75em; border-radius: 999px; }
-    .status-live { color: #14b8a6; background: rgba(20,184,166,0.12); border: 1px solid rgba(20,184,166,0.35); }
-    .status-live .dot { width: 7px; height: 7px; border-radius: 50%; background: #14b8a6; }
+    .thumb-wip svg { width: 132px; height: 132px; position: relative; z-index: 1; }
+    .app-card figcaption { padding: 1.7rem 1.8rem 1.8rem; display: flex; flex-direction: column; flex: 1; }
+    .app-card figcaption h3 { font-size: 1.45rem; margin-bottom: 0.45rem; }
+    .app-card figcaption > p { color: var(--text-dim); font-size: 0.96rem; flex: 1; margin-bottom: 1.3rem; }
+    .app-meta { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .status-pill { display: inline-flex; align-items: center; gap: 0.45em; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3em 0.75em; border-radius: 999px; }
+    .status-live { color: #2dd4bf; background: rgba(20,184,166,0.12); border: 1px solid rgba(20,184,166,0.35); }
+    .status-live .dot { width: 7px; height: 7px; border-radius: 50%; background: #2dd4bf; }
     .status-wip { color: var(--cyan); background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.3); }
     .status-wip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); }
     .app-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-dim); }
-    .app-card .card-cta { margin-top: auto; }
+    .app-card .card-cta { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .coming-note { font-size: 0.85rem; color: var(--text-dim); font-weight: 500; }
 
     @media (max-width: 640px) {
       .studio-principles { gap: 1.4rem; }
@@ -108,7 +117,7 @@
           <h1>AI that runs <span class="grad-text">right here.</span> on your phone.</h1>
           <p class="studio-sub">
             Pocket AI Labs builds small, thoughtful apps for iOS and Android &mdash; the kind of
-            intelligence that runs on your device, not a server. <a href="kartoonify/kartoonify.html">Kartoonify is live now</a>, and <a href="pocket-diary">Pocket Diary</a> is coming soon.
+            intelligence that runs on your device, not a server. <a href="kartoonify/kartoonify.html">Kartoonify is live now</a>, and Pocket Diary is next.
           </p>
         </div>
 
@@ -138,11 +147,13 @@
         <div class="app-cards">
           <!-- Kartoonify -->
           <article class="app-card">
-            <figure class="app-thumb thumb-live" aria-hidden="true">🎨</figure>
+            <figure class="app-thumb thumb-live" aria-hidden="true">
+              <img src="kartoonify/assets/images/kartoonify/output_512.webp" alt="" loading="lazy" />
+            </figure>
             <figcaption>
               <div class="app-meta">
                 <span class="status-pill status-live"><span class="dot" aria-hidden="true"></span> Live now</span>
-                <span class="app-tag">Android · iOS</span>
+                <span class="app-tag">Android &middot; iOS</span>
               </div>
               <h3>Kartoonify</h3>
               <p>Turn your photos into stylized cartoon art with a Stable Diffusion engine that runs entirely on your phone. No uploads, no account, no subscription.</p>
@@ -154,20 +165,77 @@
 
           <!-- Pocket Diary -->
           <article class="app-card">
-            <figure class="app-thumb thumb-wip" aria-hidden="true">📔</figure>
+            <figure class="app-thumb thumb-wip" aria-hidden="true">
+              <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="pdg" x1="0" y1="0" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/>
+                  </linearGradient>
+                </defs>
+                <rect x="34" y="18" width="62" height="98" rx="10" stroke="url(#pdg)" stroke-width="3.5"/>
+                <circle cx="34" cy="34" r="4" stroke="url(#pdg)" stroke-width="3"/>
+                <circle cx="34" cy="54" r="4" stroke="url(#pdg)" stroke-width="3"/>
+                <circle cx="34" cy="74" r="4" stroke="url(#pdg)" stroke-width="3"/>
+                <circle cx="34" cy="94" r="4" stroke="url(#pdg)" stroke-width="3"/>
+                <path d="M50 42h30M50 58h38M50 74h24" stroke="url(#pdg)" stroke-width="3.5" stroke-linecap="round" opacity="0.65"/>
+                <rect x="64" y="80" width="54" height="36" rx="12" fill="#0e1430" stroke="url(#pdg)" stroke-width="3.5"/>
+                <path d="M76 116v10l13-10" fill="#0e1430" stroke="url(#pdg)" stroke-width="3.5" stroke-linejoin="round"/>
+                <circle cx="81" cy="98" r="3.5" fill="url(#pdg)"/>
+                <circle cx="91" cy="98" r="3.5" fill="url(#pdg)"/>
+                <circle cx="101" cy="98" r="3.5" fill="url(#pdg)"/>
+                <path d="M112 14l3.4 9.6L125 27l-9.6 3.4L112 40l-3.4-9.6L99 27l9.6-3.4z" fill="url(#pdg)"/>
+              </svg>
+            </figure>
             <figcaption>
               <div class="app-meta">
                 <span class="status-pill status-wip"><span class="dot" aria-hidden="true"></span> In development</span>
-                <span class="app-tag">iOS · Android</span>
+                <span class="app-tag">iOS &middot; Android</span>
               </div>
               <h3>Pocket Diary</h3>
               <p>A private, child-friendly diary with an on-device AI companion named Nova. Write about your day, attach a photo or voice memo &mdash; everything stays encrypted on your device.</p>
               <div class="card-cta">
-                <a href="pocket-diary" class="btn btn-ghost">Get notified</a>
+                <span class="coming-note">Watch this space &mdash; launching soon.</span>
               </div>
             </figcaption>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- Why on-device -->
+    <section class="section" id="why" style="background: var(--bg-soft); border-block: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Why on-device</span>
+          <h2>Your phone is the server.</h2>
+          <p class="section-sub">Every Pocket AI Labs app is engineered so the smartest part of it never has to touch the network.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🔒</div>
+            <h3>Private by default</h3>
+            <p>Your photos, your words, your data &mdash; they never leave the device. No account, no cloud, no data to leak.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">📡</div>
+            <h3>Works offline</h3>
+            <p>After a one-time model download, everything runs on your Neural Engine, NPU, or GPU. No signal needed.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⚡</div>
+            <h3>Fast in your pocket</h3>
+            <p>Local inference means results in seconds &mdash; no queue, no waiting on a server, no rate limits.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-band">
+      <div class="container cta-inner">
+        <h2>Start with Kartoonify Lite.</h2>
+        <p>Free on Google Play. No account, no uploads, works offline &mdash; and the rest of the lab is on the way.</p>
+        <a class="btn btn-primary btn-lg" href="https://play.google.com/store/apps/details?id=com.pocketailabs.kartoonify.lite&hl=en_US" rel="noopener">Get Kartoonify on the Play Store</a>
       </div>
     </section>
   </main>
@@ -182,7 +250,7 @@
         <div>
           <h4>Apps</h4>
           <a href="kartoonify/kartoonify.html">Kartoonify</a>
-          <a href="pocket-diary">Pocket Diary</a>
+          <a href="#apps">Pocket Diary</a>
         </div>
         <div>
           <h4>Company</h4>
@@ -197,6 +265,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>
