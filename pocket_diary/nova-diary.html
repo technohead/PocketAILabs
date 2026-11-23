@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nova Diary — a private, child-friendly diary with an on-device AI companion named Nova. Write, attach photos and voice notes, chat with Nova. 100% on-device, no uploads, works offline." />
+  <meta property="og:site_name" content="Pocket AI Labs" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nova Diary — Private On-Device Diary with an AI Companion" />
+  <meta property="og:description" content="Nova Diary is a private diary with an on-device AI companion named Nova. Write, sketch, record — nothing ever leaves your phone." />
+  <meta property="og:image" content="../assets/social/og-index.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nova Diary — Private On-Device Diary · Pocket AI Labs" />
+  <meta name="twitter:description" content="Nova Diary is a private diary with an on-device AI companion named Nova. Nothing ever leaves your phone." />
+  <meta name="twitter:image" content="../assets/social/og-index.svg" />
+  <meta name="theme-color" content="#0f0a1f" />
+  <title>Nova Diary — Private On-Device Diary with an AI Companion · Pocket AI Labs</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/social/favicon.svg" />
+  <link rel="apple-touch-icon" href="../assets/social/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="nova-diary.css" />
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="Pocket AI Labs home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="28" height="28" fill="none">
+            <path d="M23 52V12" stroke="url(#g)" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="35" cy="25" r="12.5" stroke="url(#g)" stroke-width="4" fill="none"/>
+            <circle cx="35" cy="25" r="4.2" fill="url(#g)"/>
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-name">Pocket <b>AI</b> Labs</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="#features">What it does</a>
+        <a href="#nova">Nova</a>
+        <a href="#how">How it works</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+        <a href="../kartoonify/kartoonify.html">Kartoonify</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="pill"><span class="pill-dot" aria-hidden="true"></span> By Pocket AI Labs · On-device AI</span>
+          <h1>Write your day. <span class="grad-text">Talk to Nova.</span></h1>
+          <p class="lede">
+            <strong>Nova Diary</strong> is a private, child-friendly diary with an AI companion
+            named Nova. Write about your day, attach a photo or voice memo, and Nova chats back
+            &mdash; <b>all on your device</b>. Nothing is ever uploaded, and no account is needed.
+          </p>
+          <div class="hero-cta">
+            <a href="#notify" class="btn btn-primary">Notify me when it's ready</a>
+            <a href="#features" class="btn btn-ghost">See what it does <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <ul class="hero-points">
+            <li><b>On-device</b><span>Nova runs locally</span></li>
+            <li><b>No account</b><span>Just you</span></li>
+            <li><b>Works offline</b><span>Anywhere, anytime</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" id="preview" aria-label="Nova Diary preview">
+          <div class="companion-scene">
+            <div class="companion-card">
+              <div class="phone-note">
+                <div class="note-title">A note from today &hellip;</div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+              <div class="nova-bubble">
+                <span class="nova-avatar" aria-hidden="true">&#128426;</span>
+                <div class="lines">
+                  <div class="line" style="width:88%"></div>
+                  <div class="line" style="width:64%"></div>
+                  <div class="line" style="width:44%"></div>
+                </div>
+              </div>
+              <p class="friendship-tag">A friendly companion that <b>stays on your phone</b>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Nova Diary can do -->
+    <section class="session" id="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">What Nova Diary can do</span>
+          <h2>A diary as open as your imagination.</h2>
+          <p class="section-sub">Write, draw, attach, and record &mdash; mix everything into one private journal that lives only on your device.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <span class="feature-emoji" aria-hidden="true">&#128221;</span>
+            <h3>Write your story</h3>
+            <p>Freeform journaling with no pressure. Jot a line, a page, or a whole day &mdash; Nova Diary keeps it all private.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-emoji" aria-hidden="true">&#128247;</span>
+            <h3>Attach photos &amp; drawings</h3>
+            <p>Snag a snap, pull one from your gallery, or draw your own. Attachments stay put inside the app &mdash; nowhere else.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-emoji" aria-hidden="true">&#127908;</span>
+            <h3>Voice notes</h3>
+            <p>Record how your day felt instead of typing it. Voice memos become part of your entry, on-device only.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-emoji" aria-hidden="true">&#128426;</span>
+            <h3>Chat with Nova</h3>
+            <p>Nova is your friendly diary companion. Tell it what's on your mind, and it responds right there on your phone.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-emoji" aria-hidden="true">&#128274;</span>
+            <h3>Locked away safely</h3>
+            <p>Protect your diary with a passcode or Face ID. Your entries stay locked and on your device, always.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-emoji" aria-hidden="true">&#128266;</span>
+            <h3>Search your diary</h3>
+            <p>Find that perfect memory quickly with on-device search. Nothing is indexed anywhere but the app.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nova companion -->
+    <section class="session dark" id="nova">
+      <div class="container">
+        <div class="companion-grid">
+          <div class="companion-copy reveal">
+            <span class="kicker">Meet Nova</span>
+            <h2>An AI companion that never leaves your phone.</h2>
+            <p class="section-sub">
+              <b>Nova</b> is your friendly diary buddy. It never judges, never stores anything,
+              and never goes online. It lives entirely on your device &mdash; so every conversation
+              stays between you and your phone.
+            </p>
+            <ul class="companion-list">
+              <li><span class="tick" aria-hidden="true">&#9989;</span><span><b>Runs locally</b> &mdash; Nova uses an on-device AI model, so nothing you write ever leaves your phone.</span></li>
+              <li><span class="tick" aria-hidden="true">&#9989;</span><span><b>Friendly &amp; kind</b> &mdash; built to be warm and encouraging, in a way that's right for younger users.</span></li>
+              <li><span class="tick" aria-hidden="true">&#9989;</span><span><b>Keeps working</b> &mdash; chat with Nova even when there's no signal &mdash; it's all local.</span></li>
+              <li><span class="tick" aria-hidden="true">&#9989;</span><span><b>Never a therapist</b> &mdash; Nova is a companion, not medical advice. If things ever feel heavy, Nova points you toward trusted people.</span></li>
+            </ul>
+          </div>
+          <div class="hero-visual reveal" aria-label="Nova companion">
+            <div class="companion-scene">
+              <div class="companion-card">
+                <div class="nova-bubble" style="justify-content:center; gap:1rem; text-align:center; flex-direction:column;">
+                  <span class="nova-avatar" style="width:64px; height:64px; font-size:2.2rem;" aria-hidden="true">&#128426;</span>
+                  <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.2rem;">Nova</div>
+                </div>
+                <p class="friendship-tag">Your kind, private diary buddy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="session" id="how">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">How it works</span>
+          <h2>Start journaling in a few taps.</h2>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-n">01</span>
+            <div>
+              <h3>Open your diary</h3>
+              <p>Unlock with a passcode or your device's Face ID. Fresh entries appear, ready for whatever you want to add.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">02</span>
+            <div>
+              <h3>Add your day</h3>
+              <p>Type, draw, or record. Snap a photo or attach one from your gallery &mdash; mix as many as you like into a single entry.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">03</span>
+            <div>
+              <h3>Chat with Nova</h3>
+              <p>Want to reflect out loud? Nova is there to listen and respond, entirely on your device &mdash; no uploads, no accounts.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">04</span>
+            <div>
+              <h3>Keep it yours</h3>
+              <p>Every entry stays locked on your phone. No cloud, no sync, no server &mdash; your diary is truly yours.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="session privacy" id="privacy">
+      <div class="container privacy-inner">
+        <div class="privacy-ico" aria-hidden="true">&#128274;</div>
+        <div>
+          <span class="kicker">Private by design</span>
+          <h2>Your words stay yours.</h2>
+          <p>
+            Nova Diary was built around one rule: <em>everything happens on your device.</em>
+            Everything you write, record, or attach stays on your phone &mdash; nothing is uploaded unless
+            you choose to share it. There's no account, no cloud, and no server to read your diary.
+            <a href="privacy.html">Read our Privacy Policy</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="session faq" id="faq">
+      <div class="container narrow">
+        <div class="section-head">
+          <span class="kicker">FAQ</span>
+          <h2>Questions, answered</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>When will Nova Diary launch?</summary>
+            <p>Nova Diary is in development and not yet available on the app stores. <a href="#notify">Tell us your email</a> and we'll let you know the moment it's ready to download for iOS and Android.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How much will Nova Diary cost?</summary>
+            <p>Details aren't final yet, but Nova Diary follows the Pocket AI Labs promise: no accounts and no data to sell. A free tier is expected to lead the way, with an optional premium upgrade that unlocks more features. We'll confirm pricing when it launches.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is Nova Diary really private?</summary>
+            <p>Yes. Everything you write, draw, or record stays on your device. Nova runs an on-device AI model, so your content never leaves the phone, and there's no account or cloud to store it. Nothing is ever uploaded unless you choose to share an entry yourself.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is Nova a real person or a therapist?</summary>
+            <p>Nova is an AI companion built to be warm, friendly, and encouraging &mdash; not a person, and certainly not a therapist, doctor, or counselor. It won't give medical or professional advice. If things ever feel heavy, Nova gently points you toward a trusted adult or a crisis helpline.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I use Nova Diary offline?</summary>
+            <p>Absolutely. Nova Diary works fully offline. Everything &mdash; including Nova &mdash; runs on your device, so you can journal anywhere, anytime, with no signal required.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is it safe for younger users?</summary>
+            <p>Nova Diary is designed to be child-friendly, with kind and supportive AI responses and a safe, on-device companion. But it's always worth parents and guardians staying involved. A premium tier is expected to add optional parent controls and local alerts.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Will my entries ever sync between devices?</summary>
+            <p>Not by default. Nova Diary keeps your diary on-device by design &mdash; there's no cloud, so your entries stay only where you wrote them. If cross-device sync ever ships, it will be opt-in and built to be private.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coming-soon notify -->
+    <section class="session coming" id="notify">
+      <div class="container narrow">
+        <div class="section-head">
+          <span class="kicker">Coming soon</span>
+          <h2>Be first to try Nova Diary.</h2>
+          <p class="section-sub">Drop your email and we'll ping you the moment Nova Diary lands on the App Store and Google Play.</p>
+        </div>
+        <form class="comingform" id="notifyForm" novalidate>
+          <div class="field">
+            <label for="notifyEmail">Your email</label>
+            <input id="notifyEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+            <span class="form-error" id="notifyError" role="alert"></span>
+          </div>
+          <button class="btn btn-primary" type="submit">Notify me</button>
+        </form>
+        <p class="form-status" id="notifyStatus"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="brand-name">Pocket <b>AI</b> Labs</a>
+        <p>Nova Diary is a private, on-device diary with an AI companion named Nova. Write, sketch, record, and chat &mdash; nothing ever leaves your phone.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div>
+          <h4>Nova Diary</h4>
+          <a href="#features">What it does</a>
+          <a href="#nova">Nova</a>
+          <a href="#how">How it works</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <h4>Apps</h4>
+          <a href="../kartoonify/kartoonify.html">Kartoonify</a>
+          <a href="nova-diary.html">Nova Diary</a>
+          <a href="../smartreceipts.html">SmartReceipts</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="terms.html">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="../index.html">Pocket AI Labs</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Pocket AI Labs. All rights reserved.</p>
+      <p class="footer-note">Nova Diary &mdash; made on-device.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=2"></script>
+</body>
+</html>
