@@ -20,7 +20,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 // Scroll reveal
 const revealTargets = document.querySelectorAll(
-  ".feature-card, .step, .section-head, .hero-cta, .companion-copy, .hero-visual"
+  ".feature-card, .step, .section-head, .hero-cta, .companion-copy, .hero-visual, .shot"
 );
 revealTargets.forEach((el) => el.classList.add("reveal"));
 
