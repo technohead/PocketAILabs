@@ -13,76 +13,86 @@
   <meta name="twitter:title" content="SmartReceipts — On-Device Receipt Scanner · Pocket AI Labs" />
   <meta name="twitter:description" content="SmartReceipts scans your receipts and turns them into organized spending history with on-device AI. Nothing is ever uploaded. Coming soon." />
   <meta name="twitter:image" content="assets/social/og-index.svg" />
-  <meta name="theme-color" content="#0a0e1e" />
-    <title>SmartReceipts — On-Device Receipt Scanner · Pocket AI Labs</title>
+  <meta name="theme-color" content="#05070f" />
+  <title>SmartReceipts — On-Device Receipt Scanner · Pocket AI Labs</title>
   <link rel="icon" type="image/svg+xml" href="assets/social/favicon.svg" />
   <link rel="apple-touch-icon" href="assets/social/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=2" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=8" />
   <style>
-    /* SmartReceipts page — additive styles over the shared dark theme */
-    :root { --accent: #22d3ee; }
-    .sr { padding: clamp(5rem, 12vw, 9rem) 0; }
-    .sr-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
-    .sr .sr-eyebrow { color: var(--cyan); }
-    .sr h1 { font-size: clamp(2.4rem, 5.5vw, 3.6rem); margin-bottom: 1.2rem; }
-    .sr .sr-lede { color: var(--text-dim); font-size: 1.12rem; max-width: 46ch; margin-bottom: 2rem; }
+    .sr { padding: clamp(5rem, 12vw, 8.5rem) 0; position: relative; }
+    .sr-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; position: relative; z-index: 1; }
+    .sr h1 { font-size: clamp(2.4rem, 5.5vw, 3.6rem); margin-bottom: 1.2rem; letter-spacing: -0.03em; }
+    .sr .sr-lede { color: var(--text-dim); font-size: 1.12rem; max-width: 46ch; margin-bottom: 2rem; line-height: 1.6; }
+    .sr .sr-lede strong { color: var(--text); }
     .sr-cta { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
 
-    .coming-badge { display: inline-flex; align-items: center; gap: 0.5em; background: var(--surface); border: 1px dashed var(--border); border-radius: 999px; padding: 0.4em 0.9em; font-size: 0.82rem; font-weight: 600; color: var(--cyan); }
-    .coming-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 4px rgba(34,211,238,0.15); }
-
-    .phone-card { position: relative; width: 240px; margin: 0 auto; }
+    .phone-card { position: relative; width: 250px; margin: 0 auto; }
     .phone {
-      position: relative; width: 240px; height: 490px; border-radius: 42px;
+      position: relative; width: 250px; height: 500px; border-radius: 44px;
       background: linear-gradient(160deg, #1c2547, #0a0f20);
-      border: 7px solid #232b4d; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7); padding: 10px;
+      border: 7px solid #232b4d; box-shadow: 0 40px 80px -20px rgba(0,0,0,0.7), inset 0 0 0 2px rgba(255,255,255,0.04); padding: 10px;
     }
     .phone .notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 88px; height: 20px; background: #0a0f20; border-radius: 0 0 14px 14px; z-index: 3; }
     .phone-screen { position: relative; height: 100%; width: 100%; border-radius: 34px; background: linear-gradient(180deg, #121a35, #0a0e1e); overflow: hidden; padding: 1.4rem 1.1rem; display: flex; flex-direction: column; gap: 0.9rem; }
     .sr-shell-head { display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem; }
-    .sr-shell-head .brand { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1rem; }
-    .sr-shell-head .tag { font-size: 0.62rem; color: var(--cyan); background: rgba(34,211,238,0.12); border: 1px solid rgba(34,211,238,0.3); padding: 0.2em 0.6em; border-radius: 999px; }
-    .sr-total { background: var(--surface-hi); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; }
-    .sr-total .lbl { font-size: 0.68rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
-    .sr-total .amt { font-family: "Space Grotesk", sans-serif; font-size: 1.9rem; }
+    .sr-shell-head .brand { font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; }
+    .sr-shell-head .tag { font-family: var(--font-mono); font-size: 0.6rem; color: var(--cyan); background: rgba(34,211,238,0.12); border: 1px solid rgba(34,211,238,0.3); padding: 0.2em 0.6em; border-radius: 999px; }
+    .sr-total { background: var(--surface-hi); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; }
+    .sr-total .lbl { font-size: 0.66rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+    .sr-total .amt { font-family: var(--font-display); font-size: 1.95rem; letter-spacing: -0.02em; }
     .sr-total .sub { font-size: 0.72rem; color: var(--text-dim); }
-    .sr-item { display: flex; gap: 0.7rem; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.6rem 0.7rem; }
+    .sr-item { display: flex; gap: 0.7rem; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0.6rem 0.7rem; }
     .sr-item .ico { width: 30px; height: 30px; border-radius: 8px; background: rgba(34,211,238,0.15); display: grid; place-items: center; font-size: 1rem; flex: 0 0 auto; }
     .sr-item .txt { flex: 1; min-width: 0; }
     .sr-item .txt .n { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .sr-item .txt .c { font-size: 0.7rem; color: var(--text-dim); }
-    .sr-item .pr { font-size: 0.82rem; font-weight: 700; font-family: "Space Grotesk", sans-serif; }
+    .sr-item .pr { font-size: 0.82rem; font-weight: 700; font-family: var(--font-display); }
     .sr-scan { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-top: auto; padding: 0.9rem; border-radius: 12px; border: 1px dashed rgba(34,211,238,0.4); background: rgba(34,211,238,0.05); }
     .sr-scan .lens { font-size: 1.6rem; }
     .sr-scan .cap { font-size: 0.72rem; color: var(--cyan); font-weight: 600; }
-    .sr-detection { position: absolute; top: 14px; right: 14px; background: rgba(34,211,238,0.15); border: 1px solid rgba(34,211,238,0.4); color: var(--cyan); font-size: 0.62rem; font-weight: 600; padding: 0.25em 0.6em; border-radius: 999px; }
+    .sr-detection { position: absolute; top: 14px; right: 14px; background: rgba(34,211,238,0.15); border: 1px solid rgba(34,211,238,0.4); color: var(--cyan); font-size: 0.6rem; font-weight: 600; padding: 0.25em 0.6em; border-radius: 999px; z-index: 4; font-family: var(--font-mono); letter-spacing: 0.04em; }
 
-    .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.8rem;
-  margin-top: 2.5rem;
-  align-items: stretch;
-}
-    .feature { background: var(--surface); border: 1px solid var(--border); border-radius: calc(var(--radius) + 4px); padding: 2.2rem; box-shadow: 0 4px 20px -10px rgba(0,0,0,0.3); }
-    .feature .fi { font-size: 1.6rem; margin-bottom: 0.8rem; }
-    .feature h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .feature p { color: var(--text-dim); font-size: 0.92rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 0; align-items: stretch; }
+    .feature { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-card); transition: transform 0.32s var(--ease), border-color 0.32s, background 0.32s; display: flex; flex-direction: column; }
+    .feature:hover { transform: translateY(-6px); border-color: rgba(167,139,250,0.42); background: var(--surface-hi); }
+    .feature .fi { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 13px; background: var(--grad-soft); border: 1px solid rgba(167,139,250,0.3); font-size: 1.3rem; margin-bottom: 1.1rem; }
+    .feature h3 { font-size: 1.12rem; margin-bottom: 0.45rem; letter-spacing: -0.02em; }
+    .feature p { color: var(--text-dim); font-size: 0.93rem; line-height: 1.6; }
 
-    .section-head.center { text-align: center; max-width: 620px; margin: 0 auto clamp(2.5rem,6vw,4rem); }
+    .section-head.center { text-align: center; max-width: 640px; margin: 0 auto clamp(2.5rem,6vw,4rem); }
     .sr-join { text-align: center; max-width: 520px; margin: 0 auto; }
-    .sr-join .notify-form { max-width: 460px; margin: 1.6rem auto 0; }
+    .sr-join .notify-form { max-width: 460px; margin: 1.6rem auto 0; display: flex; gap: 0.7rem; flex-wrap: wrap; align-items: flex-start; justify-content: center; }
+    .sr-join .notify-form .field { text-align: left; flex: 1 1 240px; }
+    .notify-form .field label { display: block; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem; letter-spacing: 0.04em; }
+    .notify-form .field input { width: 100%; padding: 0.9em 1.1em; border-radius: 12px; font-size: 1rem; background: var(--bg-soft); color: var(--text); border: 1px solid var(--line); transition: border-color 0.2s; }
+    .notify-form .field input:focus { outline: none; border-color: var(--violet); }
+    .form-error { display: block; color: #fb7185; font-size: 0.78rem; margin-top: 0.35rem; min-height: 1em; }
+    .form-status { margin-top: 1.1rem; color: var(--cyan); font-weight: 500; min-height: 1.2em; }
+    .store-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .store-btn { display: inline-flex; align-items: center; gap: 0.7em; background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; padding: 0.8em 1.4em; font-weight: 600; color: var(--text-dim); }
+
+    @media (max-width: 880px) {
+      .sr-inner { grid-template-columns: 1fr; text-align: center; }
+      .sr .sr-lede { margin-inline: auto; }
+      .sr-cta, .hero-points { justify-content: center; }
+      .hero-points { justify-content: center; }
+      .phone-card { order: -1; }
+    }
   </style>
 </head>
 <body id="top">
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="ambient-grid" aria-hidden="true"></div>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="Pocket AI Labs home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" width="30" height="30" fill="none">
+          <svg viewBox="0 0 64 64" width="28" height="28" fill="none">
             <path d="M23 52V12" stroke="url(#g)" stroke-width="5" stroke-linecap="round"/>
             <circle cx="35" cy="25" r="12.5" stroke="url(#g)" stroke-width="4" fill="none"/>
             <circle cx="35" cy="25" r="4.2" fill="url(#g)"/>
@@ -114,7 +124,7 @@
     <section class="sr">
       <div class="container sr-inner">
         <div>
-          <span class="coming-badge sr-eyebrow"><span class="dot" aria-hidden="true"></span> Coming soon</span>
+          <span class="pill"><span class="pill-dot" aria-hidden="true"></span> Coming soon · On-device</span>
           <h1>Turn receipts into <span class="grad-text">insights.</span></h1>
           <p class="sr-lede">
             <strong>SmartReceipts</strong> scans your receipts and turns them into organized
@@ -122,8 +132,8 @@
             dates, totals, and currency. Nothing is ever uploaded.
           </p>
           <div class="sr-cta">
-            <a href="#get" class="btn btn-primary">Notify me at launch</a>
-            <a href="#features" class="btn btn-ghost">See features <span aria-hidden="true">&rarr;</span></a>
+            <a href="#get" class="btn btn-primary">Notify me at launch <span aria-hidden="true">&rarr;</span></a>
+            <a href="#features" class="btn btn-ghost">See features</a>
           </div>
           <ul class="hero-points">
             <li><b>100%</b><span>on-device</span></li>
@@ -174,7 +184,7 @@
     <section class="section" id="features">
       <div class="container">
         <div class="section-head center">
-          <span class="kicker">Features</span>
+          <span class="kicker">// Features</span>
           <h2>Everything you need to keep receipts under control</h2>
           <p class="section-sub">Built to run natively and offline, on the fastest chip your phone offers.</p>
         </div>
@@ -213,10 +223,10 @@
       </div>
     </section>
 
-    <section class="section dark" id="get" style="padding: clamp(5rem, 12vw, 9rem) 0;">
+    <section class="section dark cta-band" id="get" style="padding: clamp(5rem, 12vw, 8.5rem) 0;">
       <div class="container">
         <div class="section-head center">
-          <span class="kicker">Coming soon</span>
+          <span class="kicker">// Coming soon</span>
           <h2>Want to be first to try SmartReceipts?</h2>
           <p class="section-sub">We're polishing the final details. Drop your email and we'll let you know the moment it's live on iOS and Android.</p>
         </div>
@@ -266,10 +276,10 @@
     </div>
     <div class="container footer-bottom">
       <p>&copy; <span id="year"></span> Pocket AI Labs. All rights reserved.</p>
-      <p class="footer-note">Designed for the device in your pocket.</p>
+      <p class="footer-note mono">designed for the device in your pocket</p>
     </div>
   </footer>
 
-  <script src="js/main.js?v=2"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>
