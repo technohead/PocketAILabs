@@ -50,7 +50,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Scroll reveal
 const revealTargets = document.querySelectorAll(
-  ".section-head, .feature-card, .step, .companion-copy, .hero-visual, .shot, .hero-cta, .hero-points, .shot-frame, .gallery, .session"
+  ".section-head, .feature-card, .step, .companion-copy, .hero-visual, .shot, .hero-cta, .hero-points, .shot-frame, .gallery, .session, .persona-card, .persona-rules"
 );
 revealTargets.forEach((el) => el.classList.add("reveal"));
 const io = IntersectionObserver || class { constructor(cb){ this.cb = cb; } observe(el){ setTimeout(() => el.classList.add("in"), 200); } unobserve(){} };
