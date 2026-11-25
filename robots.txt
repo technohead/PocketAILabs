@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.pocketlabs.com/sitemap.xml
+Sitemap: https://www.pocketailabs.com/sitemap.xml
