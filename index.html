@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Pocket AI Labs — Building private, on-device AI apps for iOS and Android. Kartoonify is live now. Something's cooking…" />
-  <meta name="theme-color" content="#0b1021" />
+  <meta name="theme-color" content="#0a0e1e" />
   <link rel="icon" type="image/svg+xml" href="assets/social/favicon.svg" />
   <link rel="apple-touch-icon" href="assets/social/favicon.svg" />
   <title>Pocket AI Labs — On-device AI apps · Pocket AI Labs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=2" />
   <style>
     /* ---------- Hero ---------- */
     .studio-hero {
+      position: relative;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -22,6 +23,9 @@
       justify-content: center;
       text-align: center;
       padding: clamp(4rem, 10vw, 7rem) 0;
+      background:
+        radial-gradient(55% 48% at 50% -4%, rgba(139, 92, 246, 0.18), transparent 68%),
+        radial-gradient(38% 34% at 86% 18%, rgba(34, 211, 238, 0.1), transparent 62%);
     }
     .studio-hero > .container { width: min(1160px, 92%); }
     .studio-badge {
@@ -41,9 +45,10 @@
     .studio-sub a { color: var(--cyan); text-decoration: none; border-bottom: 1px solid rgba(34,211,238,0.4); }
     .studio-sub a:hover { border-bottom-color: var(--cyan); }
     .studio-cta { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.4rem; }
-    .studio-principles { display: flex; gap: 2.6rem; justify-content: center; flex-wrap: wrap; list-style: none; }
-    .studio-principles li { color: var(--text-dim); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.15em; }
-    .studio-principles li b { display: block; font-family: "Space Grotesk", sans-serif; font-size: 1.3rem; color: var(--text); }
+    .studio-principles { display: flex; justify-content: center; flex-wrap: wrap; list-style: none; max-width: 760px; }
+    .studio-principles li { color: var(--text-dim); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.15em; padding: 0 2.4rem; border-left: 1px solid var(--border); }
+    .studio-principles li:first-child { border-left: 0; }
+    .studio-principles li b { display: block; font-family: "Space Grotesk", sans-serif; font-size: 1.5rem; font-weight: 700; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
     /* ---------- Section kicker (matches kartoonify.css) ---------- */
     .kicker {
