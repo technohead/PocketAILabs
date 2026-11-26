@@ -80,7 +80,7 @@ if (metric) {
 
 // Scroll reveal
 const revealTargets = document.querySelectorAll(
-  ".card, .step, .app-card, .section-head, .hero-cta, .hero-stats, .phone, .floating-chip, .terminal, .ticker, .app-card, .feature, .edition-card, .shot-frame, .gallery-session, .session"
+  ".card, .step, .app-card, .section-head, .hero-cta, .hero-stats, .phone, .floating-chip, .ticker, .feature, .edition-card, .shot-frame, .gallery-session, .session"
 );
 revealTargets.forEach((el) => el.classList.add("reveal"));
 
