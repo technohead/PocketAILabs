@@ -387,6 +387,8 @@ a { color: inherit; text-decoration: none; }
 .style-card.m4 { border-color: rgba(251,191,36,0.5); }
 .style-card figcaption span { font-size: 0.85rem; color: var(--muted); }
 
+.style-card.original::before { background: linear-gradient(150deg, #64748b, #334155); }
+.style-card.original { border-color: rgba(148, 163, 184, 0.35); }
 .s1::before { background: linear-gradient(150deg, #f43f5e, #8b5cf6); }
 .s2::before { background: linear-gradient(150deg, #38bdf8, #a855f7); }
 .s3::before { background: linear-gradient(150deg, #22d3ee, #ec4899); }
